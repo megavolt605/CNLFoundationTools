@@ -114,7 +114,7 @@ Commonly used in other Complex Numbers projects.
 
   # s.module_map = "CNFoundationTools/CommonCrypto/module.map"
 
-  s.preserve_paths = "CNFoundationTools/CNFoundationTools/CommonCrypto/module.map"
+  s.preserve_paths = "CNFoundationTools/CommonCrypto/module.map"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
