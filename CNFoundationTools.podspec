@@ -92,7 +92,7 @@ Commonly used in other Complex Numbers projects.
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CNFoundationTools", "Classes/**/*.{h,m,swift}"
+  s.source_files  = "CNFoundationTools/**/*.{h,m,swift,map}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -109,7 +109,12 @@ Commonly used in other Complex Numbers projects.
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
 
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+  s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CNFoundationTools/CNFoundationTools/CommonCrypto' }
+  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/CNFoundationTools/CNFoundationTools/CommonCrypto' }
+
+  # s.module_map = "CNFoundationTools/CommonCrypto/module.map"
+
+  s.preserve_paths = "CNFoundationTools/CNFoundationTools/CommonCrypto/module.map"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

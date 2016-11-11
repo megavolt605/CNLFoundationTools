@@ -33,6 +33,7 @@
 		780426AF1DD5E0C900878F72 /* CNFT+AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNFT+AttributedString.swift"; sourceTree = "<group>"; };
 		780426B11DD5E17B00878F72 /* CNFT+Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNFT+Timer.swift"; sourceTree = "<group>"; };
 		780426B31DD5E27000878F72 /* CNFoundationTools.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CNFoundationTools.podspec; sourceTree = SOURCE_ROOT; };
+		780426B61DD5E7E000878F72 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.map; path = CommonCrypto/module.map; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 		780426971DD5DB7A00878F72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				780426B51DD5E7D300878F72 /* CommonCrypto */,
 				780426B31DD5E27000878F72 /* CNFoundationTools.podspec */,
 				780426981DD5DB7A00878F72 /* CNFoundationTools.h */,
 				780426991DD5DB7A00878F72 /* Info.plist */,
@@ -88,6 +90,14 @@
 				780426B11DD5E17B00878F72 /* CNFT+Timer.swift */,
 			);
 			path = CNFoundationTools;
+			sourceTree = "<group>";
+		};
+		780426B51DD5E7D300878F72 /* CommonCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				780426B61DD5E7E000878F72 /* module.map */,
+			);
+			name = CommonCrypto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
