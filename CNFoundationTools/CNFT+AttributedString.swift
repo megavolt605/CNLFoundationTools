@@ -1,0 +1,29 @@
+//
+//  CNFT+AttributedString.swift
+//  CNFoundationTools
+//
+//  Created by Igor Smirnov on 11/11/2016.
+//  Copyright © 2016 Complex Numbers. All rights reserved.
+//
+
+import Foundation
+
+public extension NSAttributedString {
+    
+    public class func mixAttributedStrings(_ strings: [NSAttributedString]) -> NSAttributedString {
+        return strings.reduce(NSMutableAttributedString()) {
+            $0.append($1)
+            return $0
+        }
+    }
+    
+    public typealias CNStringWithAttrs = (string: String, attrs: Dictionary<String, Any>?)
+    
+    public class func mixStrings(_ strings: [CNStringWithAttrs]) -> NSAttributedString {
+        let astrings = strings.map { string in
+            return NSAttributedString(string: string.string, attributes: string.attrs)
+        }
+        return mixAttributedStrings(astrings)
+    }
+    
+}
