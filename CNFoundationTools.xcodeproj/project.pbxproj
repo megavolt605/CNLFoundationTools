@@ -19,6 +19,8 @@
 		780426B21DD5E17B00878F72 /* CNFT+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426B11DD5E17B00878F72 /* CNFT+Timer.swift */; };
 		780426D81DD5F8F500878F72 /* CNAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426D71DD5F8F500878F72 /* CNAssociated.swift */; };
 		780426DA1DD5F92600878F72 /* CNLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426D91DD5F92600878F72 /* CNLog.swift */; };
+		780426DC1DD5FD2C00878F72 /* CNDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DB1DD5FD2C00878F72 /* CNDispatch.swift */; };
+		780426DE1DD5FD6100878F72 /* CNTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DD1DD5FD6100878F72 /* CNTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		780426B61DD5E7E000878F72 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = module.map; path = CommonCrypto/module.map; sourceTree = "<group>"; };
 		780426D71DD5F8F500878F72 /* CNAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNAssociated.swift; sourceTree = "<group>"; };
 		780426D91DD5F92600878F72 /* CNLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLog.swift; sourceTree = "<group>"; };
+		780426DB1DD5FD2C00878F72 /* CNDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNDispatch.swift; sourceTree = "<group>"; };
+		780426DD1DD5FD6100878F72 /* CNTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 			children = (
 				780426D71DD5F8F500878F72 /* CNAssociated.swift */,
 				780426D91DD5F92600878F72 /* CNLog.swift */,
+				780426DB1DD5FD2C00878F72 /* CNDispatch.swift */,
+				780426DD1DD5FD6100878F72 /* CNTools.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				780426DC1DD5FD2C00878F72 /* CNDispatch.swift in Sources */,
 				780426A81DD5DE4200878F72 /* CNFT+Dictionary.swift in Sources */,
 				780426DA1DD5F92600878F72 /* CNLog.swift in Sources */,
 				780426AC1DD5E06800878F72 /* CNFT+TimeZone.swift in Sources */,
@@ -212,6 +219,7 @@
 				780426B21DD5E17B00878F72 /* CNFT+Timer.swift in Sources */,
 				780426AE1DD5E08900878F72 /* CNFT+Data.swift in Sources */,
 				780426AA1DD5DF0600878F72 /* CNFT+Date.swift in Sources */,
+				780426DE1DD5FD6100878F72 /* CNTools.swift in Sources */,
 				780426A61DD5DE0C00878F72 /* CNFT+Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
