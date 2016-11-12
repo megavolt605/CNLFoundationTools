@@ -61,6 +61,79 @@ extension UIView
 end
 ``` 
 
+### CNLog
+Adds emoji symbols to the log strings
+
+There is some log levels defined:
+```swift
+switch self {
+    case .debug: return "➡️"
+    case .network: return "🌐"
+    case .info: return "💡"
+    case .warning: return "❗"
+    case .error: return "❌"
+}
+```
+
+Example of usage: 
+```swift
+CNLog("My log message", level: .info)
+```
+
+Output will something like this:
+```
+💡 My log message
+```
+
+### CNDispatch
+
+Run backgoundClosure async in global queue, then completionClosure async in main queue:
+```swift
+func asyncGlobal (_ backgroundClosure: @escaping () -> Void, _ completionClosure: @escaping (() -> Void) )
+```
+
+Run backgoundClosure async in global queue:
+```swift
+func asyncGlobal (_ backgroundClosure: @escaping () -> Void)
+```
+
+Run backgoundClosure async in global queue, then calls completionClosure async in main queue with result of backgroundClosure:
+```swift
+func asyncGlobal<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: @escaping ((_ result: R) -> ()) )
+```
+
+Run backgoundClosure sync in main queue:
+```swift
+func syncMain (_ backgroundClosure: @escaping () -> Void )
+```
+
+Run backgoundClosure async in main queue, then calls completionClosure:
+```swift
+func asyncMain (_ backgroundClosure: @escaping () -> Void, _ completionClosure: @escaping (() -> Void) )
+```
+
+Run backgoundClosure async in main queue:
+```swift
+func asyncMain (_ backgroundClosure: @escaping () -> Void )
+```
+
+Run backgoundClosure async in main queue, then calls completionClosure with result of backgroundClosure:
+```swift
+func asyncMain<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: @escaping ((_ result: R) -> ()) )
+```
+
+## TODO: Update README.md for:
+### CNURLCache
+### Int extensions
+### Stirng extensions
+### Array extensions
+### Dictionary extensions
+### Date extensions
+### TimeZone extensions
+### Data extensions
+### AttributedString extensions
+### Timer extensions
+
 ## Author
 
 [Igor Smirnov](https://www.github.com/megavolt605 "Igor Smirnov Github")
