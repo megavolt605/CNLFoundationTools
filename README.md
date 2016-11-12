@@ -41,7 +41,7 @@ extension "entity"
 end
 ```
 
-For example, following code will add `stringTag` variable of type `String` to all `UIView` and it descedants:
+For example, following code will add `stringTag` variable of optional type `String` (i.e. `String?`) to all `UIView` and it descedants:
 
 ```swift
 fileprivate var UIKitStringTag = "UIKitStringTag"
