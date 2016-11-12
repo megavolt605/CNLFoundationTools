@@ -19,6 +19,48 @@ use_frameworks!
 
 pod 'CNFoundationTools'
 ```
+
+## Usage
+
+### CNAssociated
+```swift
+fileprivate var variableKey = "variableKey"
+extension UIView
+    var "variable": "type" {
+        get {
+            if let value = (objc_getAssociatedObject(self, &variableKey) as? CNAssociated<"type">)?.closure {
+                return value
+            } else {
+                return "defaultValue"
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &variableKey, CNAssociated<"type">(closure: newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+end
+```
+
+For example, following code will add `stringTag` variable of type `String` to all `UIView` and it descedants:
+
+```swift
+fileprivate var UIKitStringTag = "UIKitStringTag"
+extension UIView
+    var stringTag: String? {
+        get {
+            if let value = (objc_getAssociatedObject(self, &UIKitStringTag) as? CNAssociated<String?>)?.closure {
+                return value
+            } else {
+                return nil
+            }
+        }
+        set {
+            objc_setAssociatedObject(self, &UIKitStringTag, CNAssociated<String?>(closure: newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+end
+``` 
+
 ## Author
 
 [Igor Smirnov](https://www.github.com/megavolt605 "Igor Smirnov Github")

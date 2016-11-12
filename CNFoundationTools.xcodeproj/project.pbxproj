@@ -44,6 +44,8 @@
 		780426DB1DD5FD2C00878F72 /* CNDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNDispatch.swift; sourceTree = "<group>"; };
 		780426DD1DD5FD6100878F72 /* CNTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNTools.swift; sourceTree = "<group>"; };
 		7811358A1DD75141000D94CD /* CNURLCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNURLCache.swift; sourceTree = "<group>"; };
+		7811358C1DD77D30000D94CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		7811358D1DD77D30000D94CD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,8 @@
 		780426971DD5DB7A00878F72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7811358C1DD77D30000D94CD /* README.md */,
+				7811358D1DD77D30000D94CD /* LICENSE */,
 				780426B51DD5E7D300878F72 /* CommonCrypto */,
 				780426B31DD5E27000878F72 /* CNFoundationTools.podspec */,
 				780426981DD5DB7A00878F72 /* CNFoundationTools.h */,
