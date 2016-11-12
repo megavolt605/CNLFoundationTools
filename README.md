@@ -25,7 +25,7 @@ pod 'CNFoundationTools'
 ### CNAssociated
 ```swift
 fileprivate var variableKey = "variableKey"
-extension UIView
+extension "entity"
     var "variable": "type" {
         get {
             if let value = (objc_getAssociatedObject(self, &variableKey) as? CNAssociated<"type">)?.closure {
