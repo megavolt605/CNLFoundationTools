@@ -10,6 +10,12 @@ import Foundation
 
 public extension Timer {
     
+    /// Creates disposable timer and schedule it to invoke handler after delay
+    ///
+    /// - Parameters:
+    ///   - delay: Delay (seconds)
+    ///   - handler: Closure to be invoked
+    /// - Returns: Timer instance
     public class func schedule(delay: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer? {
         let fireDate = delay + CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, 0, 0, 0, handler)
@@ -17,6 +23,12 @@ public extension Timer {
         return timer
     }
     
+    /// Creates timer and schedule it to invoke handler after delay, repeating with specified interval
+    ///
+    /// - Parameters:
+    ///   - interval: Repeating interval
+    ///   - handler: Closure to be invoked
+    /// - Returns: Timer instance
     public class func schedule(repeatInterval interval: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer? {
         let fireDate = interval + CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, interval, 0, 0, handler)

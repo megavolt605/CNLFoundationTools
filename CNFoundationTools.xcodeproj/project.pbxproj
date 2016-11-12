@@ -21,6 +21,7 @@
 		780426DA1DD5F92600878F72 /* CNLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426D91DD5F92600878F72 /* CNLog.swift */; };
 		780426DC1DD5FD2C00878F72 /* CNDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DB1DD5FD2C00878F72 /* CNDispatch.swift */; };
 		780426DE1DD5FD6100878F72 /* CNTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DD1DD5FD6100878F72 /* CNTools.swift */; };
+		7811358B1DD75141000D94CD /* CNURLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7811358A1DD75141000D94CD /* CNURLCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		780426D91DD5F92600878F72 /* CNLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLog.swift; sourceTree = "<group>"; };
 		780426DB1DD5FD2C00878F72 /* CNDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNDispatch.swift; sourceTree = "<group>"; };
 		780426DD1DD5FD6100878F72 /* CNTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNTools.swift; sourceTree = "<group>"; };
+		7811358A1DD75141000D94CD /* CNURLCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNURLCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				780426D71DD5F8F500878F72 /* CNAssociated.swift */,
 				780426D91DD5F92600878F72 /* CNLog.swift */,
 				780426DB1DD5FD2C00878F72 /* CNDispatch.swift */,
+				7811358A1DD75141000D94CD /* CNURLCache.swift */,
 				780426DD1DD5FD6100878F72 /* CNTools.swift */,
 			);
 			name = Classes;
@@ -215,6 +218,7 @@
 				780426D81DD5F8F500878F72 /* CNAssociated.swift in Sources */,
 				780426A21DD5DBC600878F72 /* CNFT+Int.swift in Sources */,
 				780426B01DD5E0C900878F72 /* CNFT+AttributedString.swift in Sources */,
+				7811358B1DD75141000D94CD /* CNURLCache.swift in Sources */,
 				780426A41DD5DC2300878F72 /* CNFT+String.swift in Sources */,
 				780426B21DD5E17B00878F72 /* CNFT+Timer.swift in Sources */,
 				780426AE1DD5E08900878F72 /* CNFT+Data.swift in Sources */,
@@ -386,6 +390,7 @@
 				7804269F1DD5DB7A00878F72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

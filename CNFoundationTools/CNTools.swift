@@ -8,6 +8,16 @@
 
 import Foundation
 
-public func with<T>(_ target: T, doWith: (T) -> ()) {
-    doWith(target)
+/// Helper function
+///
+/// Typical usage:
+/// with(label) { label
+///     text = "text"
+///     font = someFont
+/// }
+
+public func with<T>(_ target: T?, doWith: (T) -> ()) {
+    if let target = target {
+        doWith(target)
+    }
 }

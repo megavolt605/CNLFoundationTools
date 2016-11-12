@@ -10,6 +10,10 @@ import Foundation
 
 public extension NSAttributedString {
     
+    /// Combine array of NSAttributedString into single one
+    ///
+    /// - Parameter strings: Array of NSAttributedString
+    /// - Returns: Result of mixup (NSAttributedString)
     public class func mixAttributedStrings(_ strings: [NSAttributedString]) -> NSAttributedString {
         return strings.reduce(NSMutableAttributedString()) {
             $0.append($1)
@@ -19,6 +23,10 @@ public extension NSAttributedString {
     
     public typealias CNStringWithAttrs = (string: String, attrs: Dictionary<String, Any>?)
     
+    /// Combine tuples (string, attributes) into NSAttributedString
+    ///
+    /// - Parameter strings: Array of strings with attributes
+    /// - Returns: Result of mixup (NSAttributedString)
     public class func mixStrings(_ strings: [CNStringWithAttrs]) -> NSAttributedString {
         let astrings = strings.map { string in
             return NSAttributedString(string: string.string, attributes: string.attrs)

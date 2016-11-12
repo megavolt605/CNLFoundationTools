@@ -10,22 +10,29 @@ import Foundation
 
 public extension Date {
     
+    /// Convert date from UTC
     public var fromUTC: Date {
         let calendar: Calendar = Calendar.current
         return addingTimeInterval(TimeInterval(calendar.timeZone.secondsFromGMT()))
     }
     
+    /// Convert date to UTC
     public var toUTC: Date {
         let calendar: Calendar = Calendar.current
         return addingTimeInterval(-TimeInterval(calendar.timeZone.secondsFromGMT()))
     }
     
+    /// Convert date to string with format specified
+    ///
+    /// - Parameter format: Format string
+    /// - Returns: String with date conforming specified format
     public func toStringWithFormat(format: String) -> String {
         let fmt = DateFormatter()
-        fmt.dateFormat = format;
+        fmt.dateFormat = format
         return fmt.string(from: self)
     }
     
+    /// String with ISO date
     public var ISODate: String {
         let f = DateFormatter()
         f.timeZone = TimeZone(abbreviation: "UTC")
@@ -33,6 +40,7 @@ public extension Date {
         return f.string(from: self)
     }
     
+    /// Stirng with ISO time
     public var ISOTime: String {
         let f = DateFormatter()
         f.timeZone = TimeZone(abbreviation: "UTC")
@@ -40,6 +48,7 @@ public extension Date {
         return f.string(from: self)
     }
     
+    /// String with ISO date and time
     public var ISODateTime: String {
         let f = DateFormatter()
         f.timeZone = TimeZone(abbreviation: "UTC")
@@ -49,7 +58,7 @@ public extension Date {
     
 }
 
-// operators
+/// Date comparision operators
 
 public func > (left: Date, right: Date) -> Bool {
     return left.compare(right) == ComparisonResult.orderedDescending

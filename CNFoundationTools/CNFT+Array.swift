@@ -10,34 +10,35 @@ import Foundation
 
 public extension Array {
     
-    public func indexOf(_ check: (Element) -> Bool) -> Int? {
-        for (index, element) in self.enumerated() {
-            if check(element) {
-                return index
-            }
-        }
-        return nil
-    }
-    
+    /// Lookup value within array with check closure
+    ///
+    /// - Parameter check: Check element closure
+    /// - Returns: Found element when founded or nil, when not
     public func lookup(_ check: (Element) -> Bool) -> Element? {
-        for element in self {
-            if check(element) {
-                return element
-            }
+        if let idx = index(where: check) {
+            return self[idx]
+        } else {
+            return nil
         }
-        return nil
     }
     
+    /// Transform Array to Dictionary
+    ///
+    /// - Parameter transform: Transform closure
+    /// - Returns: Result dictionary
     public func map<K, V>(_ transform: (Element) -> (key: K, value: V)) -> [K: V] {
         var result: [K: V] = [:]
         for item in self {
             let entry = transform(item)
             result[entry.key] = entry.value
         }
-        
         return result
     }
     
+    /// Transform Array to Dictionary (without nil transforms)
+    ///
+    /// - Parameter transform: Transform closure
+    /// - Returns: Result dictionary
     public func mapSkipNil<K, V>(_ transform: (Element) -> (key: K, value: V)?) -> [K: V] {
         var result: [K: V] = [:]
         for item in self {
@@ -45,10 +46,13 @@ public extension Array {
                 result[entry.key] = entry.value
             }
         }
-        
         return result
     }
     
+    /// Transform Array (without nil transforms)
+    ///
+    /// - Parameter transform: Transform closure
+    /// - Returns: Result array
     public func mapSkipNil<V>(_ transform: (Element) -> V?) -> [V] {
         var result: [V] = []
         for item in self {
@@ -56,31 +60,40 @@ public extension Array {
                 result.append(entry)
             }
         }
-        
         return result
     }
     
+    /// Check element existance
+    ///
+    /// - Parameter check: Check closure
+    /// - Returns: True when exists, false when not
     public func exists(_ check: (Element) -> Bool) -> Bool {
         return lookup(check) != nil
     }
     
-    public mutating func removeObject<U: Equatable>(_ object: U) {
-        
+    /// Remove first founded object from the array, that equals to scecified object (see Equatable protocol)
+    ///
+    /// - Parameter object: Object to remove
+    @discardableResult
+    public mutating func removeObject<U: Equatable>(_ object: U) -> Bool {
         for (index, item) in self.enumerated() {
             if let itemToDelete = item as? U {
                 if object == itemToDelete {
                     self.remove(at: index)
-                    return
+                    return true
                 }
             }
         }
-        
+        return false
     }
     
 }
 
 public extension Array where Element : Hashable {
+
+    /// Resurns array with unique elements (elements of the array must be conformed to Hashable)
     public var unique: [Element] {
         return Array(Set(self))
     }
+
 }

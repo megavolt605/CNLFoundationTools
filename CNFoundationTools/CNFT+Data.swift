@@ -11,6 +11,9 @@ import CommonCrypto
 
 public extension Data {
     
+    /// Hexadecimal string representation of the data
+    ///
+    /// - Returns: String with data
     public func toHexString() -> String {
         
         var hexString: String = ""
@@ -23,6 +26,9 @@ public extension Data {
         return hexString
     }
     
+    /// String representation of the tata
+    ///
+    /// - Returns: String with data
     public func toString() -> String {
         
         var hexString: String = ""
@@ -35,6 +41,9 @@ public extension Data {
         return hexString
     }
     
+    /// String with MD5 hash value of the data
+    ///
+    /// - Returns: MD5 string
     public func md5() -> String {
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
         let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
