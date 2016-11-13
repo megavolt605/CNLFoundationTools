@@ -1,8 +1,8 @@
-# CNFoundationTools
+# CNLFoundationTools
 Basic tools and extensions for Foundation framework
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://cocoapods.org/pods/CNFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.2-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/CNLFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.2-blue.svg" alt="CocoaPods compatible" /></a>
 
 ## Installation
 
@@ -10,32 +10,32 @@ Basic tools and extensions for Foundation framework
 
 [CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects.
 
-Specify CNFoundationTools into your project's Podfile:
+Specify CNLFoundationTools into your project's Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'CNFoundationTools'
+pod 'CNLFoundationTools'
 ```
 
 ## Usage
 
-### CNAssociated
+### CNLAssociated
 ```swift
 fileprivate var variableKey = "variableKey"
 extension UIView
     var "variable": "type" {
         get {
-            if let value = (objc_getAssociatedObject(self, &variableKey) as? CNAssociated<"type">)?.closure {
+            if let value = (objc_getAssociatedObject(self, &variableKey) as? CNLAssociated<"type">)?.closure {
                 return value
             } else {
                 return "defaultValue"
             }
         }
         set {
-            objc_setAssociatedObject(self, &variableKey, CNAssociated<"type">(closure: newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &variableKey, CNLAssociated<"type">(closure: newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 end
@@ -48,20 +48,20 @@ fileprivate var UIKitStringTag = "UIKitStringTag"
 extension UIView
     var stringTag: String? {
         get {
-            if let value = (objc_getAssociatedObject(self, &UIKitStringTag) as? CNAssociated<String?>)?.closure {
+            if let value = (objc_getAssociatedObject(self, &UIKitStringTag) as? CNLAssociated<String?>)?.closure {
                 return value
             } else {
                 return nil
             }
         }
         set {
-            objc_setAssociatedObject(self, &UIKitStringTag, CNAssociated<String?>(closure: newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &UIKitStringTag, CNLAssociated<String?>(closure: newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
         }
     }
 end
 ``` 
 
-### CNLog
+### CNLLog
 Adds emoji symbols to the log strings
 
 There is some log levels defined:
@@ -85,7 +85,7 @@ Output will something like this:
 💡 My log message
 ```
 
-### CNDispatch
+### CNLDispatch
 
 Run backgoundClosure async in global queue, then completionClosure async in main queue:
 ```swift
@@ -123,7 +123,7 @@ func asyncMain<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: 
 ```
 
 ## TODO: Update README.md for:
-### CNURLCache
+### CNLURLCache
 ### Int extensions
 ### Stirng extensions
 ### Array extensions
@@ -140,4 +140,4 @@ func asyncMain<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: 
 
 ## License
 
-CNFoundationTools is released under [MIT license](https://raw.githubusercontent.com/xmartlabs/XLActionController/master/LICENSE) and copyrighted by Igor Smirnov.
+CNLFoundationTools is released under [MIT license](https://raw.githubusercontent.com/xmartlabs/XLActionController/master/LICENSE) and copyrighted by Igor Smirnov.

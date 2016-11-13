@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint CNFoundationTools.podspec' to ensure this is a
+#  Be sure to run `pod spec lint CNLFoundationTools.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "CNFoundationTools"
-  s.version      = "0.0.2"
+  s.name         = "CNLFoundationTools"
+  s.version      = "0.0.3"
   s.summary      = "."
 
   # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ Common extensions to Foundation.
 Commonly used in other Complex Numbers projects.
                    DESC
 
-  s.homepage     = "https://github.com/megavolt605/CNFoundationTools"
+  s.homepage     = "https://github.com/megavolt605/CNLFoundationTools"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -81,7 +81,7 @@ Commonly used in other Complex Numbers projects.
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/megavolt605/CNFoundationTools.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/megavolt605/CNLFoundationTools.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,7 +92,7 @@ Commonly used in other Complex Numbers projects.
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CNFoundationTools/**/*.{h,m,swift,map}"
+  s.source_files  = "CNLFoundationTools/**/*.{h,m,swift,map}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -109,12 +109,12 @@ Commonly used in other Complex Numbers projects.
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
 
-  s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CNFoundationTools/CNFoundationTools/CommonCrypto' }
-  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/CNFoundationTools/CNFoundationTools/CommonCrypto' }
+  s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CNLFoundationTools/CNLFoundationTools/CommonCrypto' }
+  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/CNLFoundationTools/CNLFoundationTools/CommonCrypto' }
 
-  # s.module_map = "CNFoundationTools/CommonCrypto/module.map"
+  # s.module_map = "CNLFoundationTools/CommonCrypto/module.map"
 
-  s.preserve_paths = "CNFoundationTools/CommonCrypto/module.map"
+  s.preserve_paths = "CNLFoundationTools/CommonCrypto/module.map"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
