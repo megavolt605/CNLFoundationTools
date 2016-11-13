@@ -30,7 +30,7 @@ public final class CNLURLCache: URLCache {
         var response: CachedURLResponse? = nil
         
         // try to get cache response, userInfo and cache date
-        if let cachedResponse = super.cachedResponse(for: request), let userInfo = cachedResponse.userInfo, let cacheDate = userInfo[CNURLCache.ExpiresKey] as? Date {
+        if let cachedResponse = super.cachedResponse(for: request), let userInfo = cachedResponse.userInfo, let cacheDate = userInfo[CNLURLCache.ExpiresKey] as? Date {
             // check if the cache data are expired
             if (cacheDate.timeIntervalSinceNow < -cacheExpired) {
                 // remove old cache request
@@ -51,7 +51,7 @@ public final class CNLURLCache: URLCache {
         var userInfo = cachedResponse.userInfo ?? [:]
 
         // add current date to the UserInfo
-        userInfo[CNURLCache.ExpiresKey] = Date()
+        userInfo[CNLURLCache.ExpiresKey] = Date()
         
         // create new cached response
         let newCachedResponse = CachedURLResponse(

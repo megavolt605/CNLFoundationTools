@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		781135A51DD8AE80000D94CD /* CNLFoundationTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 781135A31DD8AE80000D94CD /* CNLFoundationTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		781135AE1DD8B2DB000D94CD /* CNLAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426D71DD5F8F500878F72 /* CNLAssociated.swift */; };
+		781135AF1DD8B2DB000D94CD /* CNLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426D91DD5F92600878F72 /* CNLLog.swift */; };
+		781135B01DD8B2DB000D94CD /* CNLDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DB1DD5FD2C00878F72 /* CNLDispatch.swift */; };
+		781135B11DD8B2DB000D94CD /* CNLURLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7811358A1DD75141000D94CD /* CNLURLCache.swift */; };
+		781135B21DD8B2DB000D94CD /* CNLTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DD1DD5FD6100878F72 /* CNLTools.swift */; };
+		781135B31DD8B2DE000D94CD /* CNLFT+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A11DD5DBC600878F72 /* CNLFT+Int.swift */; };
+		781135B41DD8B2DE000D94CD /* CNLFT+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A31DD5DC2300878F72 /* CNLFT+String.swift */; };
+		781135B51DD8B2DE000D94CD /* CNLFT+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A51DD5DE0C00878F72 /* CNLFT+Array.swift */; };
+		781135B61DD8B2DE000D94CD /* CNLFT+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A71DD5DE4200878F72 /* CNLFT+Dictionary.swift */; };
+		781135B71DD8B2DE000D94CD /* CNLFT+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A91DD5DF0600878F72 /* CNLFT+Date.swift */; };
+		781135B81DD8B2DE000D94CD /* CNLFT+TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426AB1DD5E06800878F72 /* CNLFT+TimeZone.swift */; };
+		781135B91DD8B2DE000D94CD /* CNLFT+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426AD1DD5E08900878F72 /* CNLFT+Data.swift */; };
+		781135BA1DD8B2DE000D94CD /* CNLFT+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426AF1DD5E0C900878F72 /* CNLFT+AttributedString.swift */; };
+		781135BB1DD8B2DE000D94CD /* CNLFT+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426B11DD5E17B00878F72 /* CNLFT+Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +227,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				781135B41DD8B2DE000D94CD /* CNLFT+String.swift in Sources */,
+				781135B61DD8B2DE000D94CD /* CNLFT+Dictionary.swift in Sources */,
+				781135B11DD8B2DB000D94CD /* CNLURLCache.swift in Sources */,
+				781135B81DD8B2DE000D94CD /* CNLFT+TimeZone.swift in Sources */,
+				781135B31DD8B2DE000D94CD /* CNLFT+Int.swift in Sources */,
+				781135B01DD8B2DB000D94CD /* CNLDispatch.swift in Sources */,
+				781135B21DD8B2DB000D94CD /* CNLTools.swift in Sources */,
+				781135B51DD8B2DE000D94CD /* CNLFT+Array.swift in Sources */,
+				781135AF1DD8B2DB000D94CD /* CNLLog.swift in Sources */,
+				781135BA1DD8B2DE000D94CD /* CNLFT+AttributedString.swift in Sources */,
+				781135AE1DD8B2DB000D94CD /* CNLAssociated.swift in Sources */,
+				781135BB1DD8B2DE000D94CD /* CNLFT+Timer.swift in Sources */,
+				781135B71DD8B2DE000D94CD /* CNLFT+Date.swift in Sources */,
+				781135B91DD8B2DE000D94CD /* CNLFT+Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +403,7 @@
 				781135A81DD8AE80000D94CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

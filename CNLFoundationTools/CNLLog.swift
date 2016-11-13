@@ -10,7 +10,7 @@ import Foundation
 
 public enum CNLLogLevel: Int {
     case debug, network, info, warning, error
-    static let allValues: [CNLogLevel] = [debug, network, info, warning, error]
+    static let allValues: [CNLLogLevel] = [debug, network, info, warning, error]
     var description: String {
         switch self {
         case .debug: return "➡️"
@@ -23,7 +23,7 @@ public enum CNLLogLevel: Int {
 }
 
 public func CNLLog(_ message: String, level: CNLLogLevel) {
-    CNLogger.log(message, level: level)
+    CNLLogger.log(message, level: level)
 }
 
 public struct CNLLogger {
