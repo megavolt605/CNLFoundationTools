@@ -1,6 +1,6 @@
 //
-//  CNLog.swift
-//  CNFoundationTools
+//  CNLLog.swift
+//  CNLFoundationTools
 //
 //  Created by Igor Smirnov on 11/11/2016.
 //  Copyright © 2016 Complex Numbers. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum CNLogLevel: Int {
+public enum CNLLogLevel: Int {
     case debug, network, info, warning, error
     static let allValues: [CNLogLevel] = [debug, network, info, warning, error]
     var description: String {
@@ -22,15 +22,15 @@ public enum CNLogLevel: Int {
     }
 }
 
-public func CNLog(_ message: String, level: CNLogLevel) {
+public func CNLLog(_ message: String, level: CNLLogLevel) {
     CNLogger.log(message, level: level)
 }
 
-public struct CNLogger {
+public struct CNLLogger {
     
-    static var level: CNLogLevel = .debug
+    static var level: CNLLogLevel = .debug
     
-    static func log(_ message: String, level: CNLogLevel) {
+    static func log(_ message: String, level: CNLLogLevel) {
         print("\(level.description) \(message)")
     }
     

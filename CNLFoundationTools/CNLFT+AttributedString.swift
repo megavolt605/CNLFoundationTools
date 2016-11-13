@@ -1,6 +1,6 @@
 //
-//  CNFT+AttributedString.swift
-//  CNFoundationTools
+//  CNLFT+AttributedString.swift
+//  CNLFoundationTools
 //
 //  Created by Igor Smirnov on 11/11/2016.
 //  Copyright © 2016 Complex Numbers. All rights reserved.
@@ -21,13 +21,13 @@ public extension NSAttributedString {
         }
     }
     
-    public typealias CNStringWithAttrs = (string: String, attrs: Dictionary<String, Any>?)
+    public typealias CNLStringWithAttrs = (string: String, attrs: Dictionary<String, Any>?)
     
     /// Combine tuples (string, attributes) into NSAttributedString
     ///
     /// - Parameter strings: Array of strings with attributes
     /// - Returns: Result of mixup (NSAttributedString)
-    public class func mixStrings(_ strings: [CNStringWithAttrs]) -> NSAttributedString {
+    public class func mixStrings(_ strings: [CNLStringWithAttrs]) -> NSAttributedString {
         let astrings = strings.map { string in
             return NSAttributedString(string: string.string, attributes: string.attrs)
         }

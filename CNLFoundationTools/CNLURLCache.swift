@@ -1,6 +1,6 @@
 //
-//  CNURLCache.swift
-//  CNFoundationTools
+//  CNLURLCache.swift
+//  CNLFoundationTools
 //
 //  Created by Igor Smirnov on 12/11/2016.
 //  Copyright © 2016 Complex Numbers. All rights reserved.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-public final class CNURLCache: URLCache {
+public final class CNLURLCache: URLCache {
     
     var cacheExpired: TimeInterval = 24.0 * 60.0 * 60.0
     
     var ignoredPrefixes: [String] = []
     
     // UserInfo expires key
-    static var ExpiresKey = "CNURLCache";
+    static var ExpiresKey = "CNLURLCache";
     
     // get cache response for a request
     override public func cachedResponse(for request: URLRequest) -> CachedURLResponse? {

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "780426941DD5DB7A00878F72"
-               BuildableName = "CNFoundationTools.framework"
-               BlueprintName = "CNFoundationTools"
-               ReferencedContainer = "container:CNFoundationTools.xcodeproj">
+               BlueprintIdentifier = "781135A01DD8AE80000D94CD"
+               BuildableName = "CNLFoundationTools.framework"
+               BlueprintName = "CNLFoundationTools"
+               ReferencedContainer = "container:CNLFoundationTools.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "780426941DD5DB7A00878F72"
-            BuildableName = "CNFoundationTools.framework"
-            BlueprintName = "CNFoundationTools"
-            ReferencedContainer = "container:CNFoundationTools.xcodeproj">
+            BlueprintIdentifier = "781135A01DD8AE80000D94CD"
+            BuildableName = "CNLFoundationTools.framework"
+            BlueprintName = "CNLFoundationTools"
+            ReferencedContainer = "container:CNLFoundationTools.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "780426941DD5DB7A00878F72"
-            BuildableName = "CNFoundationTools.framework"
-            BlueprintName = "CNFoundationTools"
-            ReferencedContainer = "container:CNFoundationTools.xcodeproj">
+            BlueprintIdentifier = "781135A01DD8AE80000D94CD"
+            BuildableName = "CNLFoundationTools.framework"
+            BlueprintName = "CNLFoundationTools"
+            ReferencedContainer = "container:CNLFoundationTools.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
