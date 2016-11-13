@@ -77,7 +77,7 @@ switch self {
 
 Example of usage: 
 ```swift
-CNLog("My log message", level: .info)
+CNLLog("My log message", level: .info)
 ```
 
 Output will something like this:
