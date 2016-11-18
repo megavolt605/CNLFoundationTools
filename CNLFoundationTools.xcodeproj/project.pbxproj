@@ -22,6 +22,7 @@
 		781135B91DD8B2DE000D94CD /* CNLFT+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426AD1DD5E08900878F72 /* CNLFT+Data.swift */; };
 		781135BA1DD8B2DE000D94CD /* CNLFT+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426AF1DD5E0C900878F72 /* CNLFT+AttributedString.swift */; };
 		781135BB1DD8B2DE000D94CD /* CNLFT+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426B11DD5E17B00878F72 /* CNLFT+Timer.swift */; };
+		78124F601DDF4F3800F342B8 /* CNLDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78124F5F1DDF4F3800F342B8 /* CNLDeepLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		781135A11DD8AE80000D94CD /* CNLFoundationTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNLFoundationTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		781135A31DD8AE80000D94CD /* CNLFoundationTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CNLFoundationTools.h; sourceTree = "<group>"; };
 		781135A41DD8AE80000D94CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78124F5F1DDF4F3800F342B8 /* CNLDeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLDeepLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				780426D91DD5F92600878F72 /* CNLLog.swift */,
 				780426DB1DD5FD2C00878F72 /* CNLDispatch.swift */,
 				7811358A1DD75141000D94CD /* CNLURLCache.swift */,
+				78124F5F1DDF4F3800F342B8 /* CNLDeepLink.swift */,
 				780426DD1DD5FD6100878F72 /* CNLTools.swift */,
 			);
 			name = Classes;
@@ -241,6 +244,7 @@
 				781135BB1DD8B2DE000D94CD /* CNLFT+Timer.swift in Sources */,
 				781135B71DD8B2DE000D94CD /* CNLFT+Date.swift in Sources */,
 				781135B91DD8B2DE000D94CD /* CNLFT+Data.swift in Sources */,
+				78124F601DDF4F3800F342B8 /* CNLDeepLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
