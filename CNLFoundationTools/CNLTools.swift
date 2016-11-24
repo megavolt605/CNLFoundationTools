@@ -16,6 +16,7 @@ import Foundation
 ///     font = someFont
 /// }
 
+@discardableResult
 public func with<T>(_ target: T?, doWith: (T) -> ()) -> T? {
     if let target = target {
         doWith(target)
@@ -23,6 +24,7 @@ public func with<T>(_ target: T?, doWith: (T) -> ()) -> T? {
     return target
 }
 
+@discardableResult
 public func with<T>(_ target: T, doWith: (T) -> ()) -> T {
     doWith(target)
     return target
