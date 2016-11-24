@@ -11,9 +11,10 @@ import Foundation
 /// Helper function
 ///
 /// Typical usage:
-/// with(label) { label
-///     text = "text"
-///     font = someFont
+/// with(UILabel()) {
+///     $0.text = "text"
+///     $0.font = someFont
+///     self.addSubview($0)
 /// }
 
 @discardableResult
