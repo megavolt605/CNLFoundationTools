@@ -16,8 +16,14 @@ import Foundation
 ///     font = someFont
 /// }
 
-public func with<T>(_ target: T?, doWith: (T) -> ()) {
+public func with<T>(_ target: T?, doWith: (T) -> ()) -> T? {
     if let target = target {
         doWith(target)
     }
+    return target
+}
+
+public func with<T>(_ target: T, doWith: (T) -> ()) -> T {
+    doWith(target)
+    return target
 }
