@@ -30,3 +30,8 @@ public func with<T>(_ target: T, doWith: (T) -> ()) -> T {
     doWith(target)
     return target
 }
+
+@discardableResult
+public func with<T, U>(_ target: T, doWith: (T) -> U) -> U {
+    return doWith(target)
+}
