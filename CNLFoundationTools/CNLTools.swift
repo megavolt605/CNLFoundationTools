@@ -17,6 +17,7 @@ import Foundation
 ///     self.addSubview($0)
 /// }
 
+/*
 @discardableResult
 public func with<T>(_ target: T?, doWith: (T) -> ()) -> T? {
     if let target = target {
@@ -35,3 +36,29 @@ public func with<T>(_ target: T, doWith: (T) -> ()) -> T {
 public func with<T, U>(_ target: T, doWith: (T) -> U) -> U {
     return doWith(target)
 }
+*/
+ 
+infix operator --> { higherThan: Equatable associativity: right }
+
+@discardableResult
+public func --> <T, U>(left: T, right: (T) -> U) -> U {
+    return right(left)
+}
+
+@discardableResult
+public func --> <T, U>(left: T?, right: (T?) -> U?) -> U? {
+    return right(left)
+}
+
+@discardableResult
+public func --> <T>(left: T, right: (T) -> ()) -> T {
+    right(left)
+    return left
+}
+
+@discardableResult
+public func --> <T>(left: T?, right: (T?) -> ()) -> T? {
+    right(left)
+    return left
+}
+
