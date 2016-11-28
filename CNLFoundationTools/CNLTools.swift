@@ -37,8 +37,13 @@ public func with<T, U>(_ target: T, doWith: (T) -> U) -> U {
     return doWith(target)
 }
 */
- 
-infix operator --> { higherThan: Equatable associativity: right }
+
+precedencegroup CNFTWith {
+    associativity: right
+    higherThan: BitwiseShiftPrecedence
+}
+
+infix operator -->: CNFTWith
 
 @discardableResult
 public func --> <T, U>(left: T, right: (T) -> U) -> U {
