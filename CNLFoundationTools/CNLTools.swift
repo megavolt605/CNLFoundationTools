@@ -8,6 +8,13 @@
 
 import Foundation
 
+@inline(__always)
+public func syncCritical(object: Any, _ closure: () -> Void) {
+    objc_sync_enter(object)
+    closure()
+    objc_sync_exit(object)
+}
+
 /// Helper function
 ///
 /// Typical usage:
@@ -45,22 +52,26 @@ precedencegroup CNFTWith {
 
 infix operator -->: CNFTWith
 
+@inline(__always)
 @discardableResult
 public func --> <T, U>(left: T, right: (T) -> U) -> U {
     return right(left)
 }
 
+@inline(__always)
 @discardableResult
 public func --> <T, U>(left: T?, right: (T?) -> U?) -> U? {
     return right(left)
 }
 
+@inline(__always)
 @discardableResult
 public func --> <T>(left: T, right: (T) -> ()) -> T {
     right(left)
     return left
 }
 
+@inline(__always)
 @discardableResult
 public func --> <T>(left: T?, right: (T?) -> ()) -> T? {
     right(left)
