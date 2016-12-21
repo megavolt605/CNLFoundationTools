@@ -9,7 +9,7 @@
 import Foundation
 
 @inline(__always)
-public func syncCritical(object: Any, _ closure: () -> Void) {
+public func syncCritical(_ object: Any, _ closure: () -> Void) {
     objc_sync_enter(object)
     closure()
     objc_sync_exit(object)
