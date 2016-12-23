@@ -6,7 +6,7 @@
 //  Copyright © 2016 Complex Numbers. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for CNLFoundationTools.
 FOUNDATION_EXPORT double CNLFoundationToolsVersionNumber;
