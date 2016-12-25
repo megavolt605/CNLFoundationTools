@@ -272,13 +272,13 @@ let r0 = a0.lookup { return $0 == 30 } // 30
 Transform Array to Dictionary
 ```swift
 let a0 = [10,20,30,40,50]
-let r1: [String: Int] = a0.map { return (key: "key\($0)", value: $0 * 10) }
+let r1: [String: Int] = a0.map { return (key: "key\($0)", value: $0 * 10) } // ["key10": 100, "key20": 200, "key30": 300, "key50": 500, "key40": 400]
 ```
 
 Transform Array (without nil transforms)
 ```swift
 let a1: [Int?] = [10,20,nil,30,40,nil,50]
-let r2 = a1.mapSkipNil { return $0 }
+let r2 = a1.mapSkipNil { return $0 } // [10, 20, 30, 40, 50]
 ```
 
 Transform Array to Dictionary (without nil transforms)
@@ -289,30 +289,30 @@ let r3: [String: Int] = a1.mapSkipNil {
         return (key: "key\(value)", value: value * 10)
     }
     return nil
-}
+} // ["key10": 100, "key20": 200, "key30": 300, "key50": 500, "key40": 400]
 ```
 
 Check element existance
 ```swift
 let a0 = [10,20,30,40,50]
-let r4 = a0.exists { $0 == 30 }
-let r5 = a0.exists { $0 == 300 }
+let r4 = a0.exists { $0 == 30 } // true
+let r5 = a0.exists { $0 == 300 } // false
 ```
 
 Remove first founded object from the array, that equals to scecified object (see `Equatable` protocol)
 ```swift
 var r6 = [10,20,30,40,50]
-r6.removeObject(30)
-r6
+r6.removeObject(30) // [10, 20, 40, 50]
 ```
 
 Resurns array with unique elements (elements of the array must be conformed to `Hashable` protocol)
 ```swift
-let r7 = ["a", "b", "c", "a", "c", "d", "c", "e"].unique
+let r7 = ["a", "b", "c", "a", "c", "d", "c", "e"].unique // ["b", "e", "a", "d", "c"]
 ```
 
-## TODO: Update README.md for:
 ### Dictionary extensions
+
+## TODO: Update README.md for:
 ### Date extensions
 ### TimeZone extensions
 ### Data extensions
