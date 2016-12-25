@@ -12,7 +12,6 @@
 		781135AF1DD8B2DB000D94CD /* CNLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426D91DD5F92600878F72 /* CNLLog.swift */; };
 		781135B01DD8B2DB000D94CD /* CNLDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DB1DD5FD2C00878F72 /* CNLDispatch.swift */; };
 		781135B11DD8B2DB000D94CD /* CNLURLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7811358A1DD75141000D94CD /* CNLURLCache.swift */; };
-		781135B21DD8B2DB000D94CD /* CNLTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426DD1DD5FD6100878F72 /* CNLTools.swift */; };
 		781135B31DD8B2DE000D94CD /* CNLFT+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A11DD5DBC600878F72 /* CNLFT+Int.swift */; };
 		781135B41DD8B2DE000D94CD /* CNLFT+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A31DD5DC2300878F72 /* CNLFT+String.swift */; };
 		781135B51DD8B2DE000D94CD /* CNLFT+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426A51DD5DE0C00878F72 /* CNLFT+Array.swift */; };
@@ -42,7 +41,6 @@
 		780426D71DD5F8F500878F72 /* CNLAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLAssociated.swift; sourceTree = "<group>"; };
 		780426D91DD5F92600878F72 /* CNLLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLLog.swift; sourceTree = "<group>"; };
 		780426DB1DD5FD2C00878F72 /* CNLDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLDispatch.swift; sourceTree = "<group>"; };
-		780426DD1DD5FD6100878F72 /* CNLTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLTools.swift; sourceTree = "<group>"; };
 		7811358A1DD75141000D94CD /* CNLURLCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLURLCache.swift; sourceTree = "<group>"; };
 		7811358C1DD77D30000D94CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		7811358D1DD77D30000D94CD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
@@ -50,6 +48,7 @@
 		781135A31DD8AE80000D94CD /* CNLFoundationTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CNLFoundationTools.h; sourceTree = "<group>"; };
 		781135A41DD8AE80000D94CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78124F5F1DDF4F3800F342B8 /* CNLDeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLDeepLink.swift; sourceTree = "<group>"; };
+		78451DF21E0FF5520076872F /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +99,7 @@
 			children = (
 				780426D61DD5F8B900878F72 /* Classes */,
 				780426D51DD5F8B000878F72 /* Extensions */,
+				78451DF21E0FF5520076872F /* MyPlayground.playground */,
 			);
 			name = CNFoundationTools;
 			path = CNLFoundationTools;
@@ -137,7 +137,6 @@
 				780426DB1DD5FD2C00878F72 /* CNLDispatch.swift */,
 				7811358A1DD75141000D94CD /* CNLURLCache.swift */,
 				78124F5F1DDF4F3800F342B8 /* CNLDeepLink.swift */,
-				780426DD1DD5FD6100878F72 /* CNLTools.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -236,7 +235,6 @@
 				781135B81DD8B2DE000D94CD /* CNLFT+TimeZone.swift in Sources */,
 				781135B31DD8B2DE000D94CD /* CNLFT+Int.swift in Sources */,
 				781135B01DD8B2DB000D94CD /* CNLDispatch.swift in Sources */,
-				781135B21DD8B2DB000D94CD /* CNLTools.swift in Sources */,
 				781135B51DD8B2DE000D94CD /* CNLFT+Array.swift in Sources */,
 				781135AF1DD8B2DB000D94CD /* CNLLog.swift in Sources */,
 				781135BA1DD8B2DE000D94CD /* CNLFT+AttributedString.swift in Sources */,

@@ -15,22 +15,22 @@ public extension String {
     public var length: Int {
         return Array(self.characters).count
     }
-    
+
     /// Character by index
     ///
     /// - Parameter i: index
     public subscript (i: Int) -> Character {
         return self[self.characters.index(self.startIndex, offsetBy: i)]
     }
-    
-    
+
+
     /// Character as String by index
     ///
     /// - Parameter i: index
     public subscript (i: Int) -> String {
         return String(self[i] as Character)
     }
-    
+
     /// Substring with Range
     ///
     /// - Parameter r: range of indexes
@@ -39,7 +39,7 @@ public extension String {
         let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
         return self[Range(start ..< end)]
     }
-    
+
     /// Substring with Closed Range
     ///
     /// - Parameter r: range of indexes
@@ -48,14 +48,14 @@ public extension String {
         let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound + 1)
         return self[Range(start ..< end)]
     }
-    
+
     /// Converts string to Double?
     public var toDouble: Double? {
         let nf = NumberFormatter()
         nf.decimalSeparator = "."
         return nf.number(from: self)?.doubleValue
     }
-    
+
     /// Converts string to Int?
     public var toInt: Int? {
         if let double = toDouble {
@@ -64,7 +64,7 @@ public extension String {
             return nil
         }
     }
-    
+
     /// Inserts substring in file or url path before extension (last "." character)
     ///
     /// - Parameter suffix: substring to insert
@@ -73,7 +73,7 @@ public extension String {
         let regex = try? NSRegularExpression(pattern: "(\\.\\w+$)", options: [])
         return regex!.stringByReplacingMatches(in: self, options: [], range: NSMakeRange(0, self.length), withTemplate: "\(suffix)$1")
     }
-    
+
     /// Returns MD5 hash value of the string
     public var md5: String {
         let str = self.cString(using: String.Encoding.utf8)
@@ -105,7 +105,7 @@ public extension String {
             return self
         }
     }
-    
+
     /// Checks is string contans a valid e-mail address
     public var isEmail: Bool {
         if self != "" {
@@ -115,7 +115,7 @@ public extension String {
         }
         return false
     }
-    
+
     fileprivate func _applyFormat(_ format: String, placeholderChar placeholder: Character) -> (data: String, isCompleted: Bool) {
         var result: String = ""
         var dataIndex = startIndex
@@ -136,7 +136,7 @@ public extension String {
             isCompleted: (dataIndex == endIndex) && (formatIndex == format.endIndex)
         )
     }
-    
+
     /// Applies specified format to string
     ///
     /// - Parameters:
@@ -146,7 +146,7 @@ public extension String {
     public func applyFormat(_ format: String, placeholderChar placeholder: Character = "#") -> String {
         return _applyFormat(format, placeholderChar: placeholder).data
     }
-    
+
     /// Checks string for completly applying specified format
     ///
     /// - Parameters:
@@ -156,7 +156,7 @@ public extension String {
     public func checkFormat(_ format: String, placeholderChar placeholder: Character = "#") -> Bool {
         return _applyFormat(format, placeholderChar: placeholder).isCompleted
     }
-    
+
     /// Extracts digits from the string
     public var digitsOnly: String {
         let nonDigits = CharacterSet.decimalDigits.inverted

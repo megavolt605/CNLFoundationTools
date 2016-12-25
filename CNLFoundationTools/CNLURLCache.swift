@@ -8,17 +8,17 @@
 
 import Foundation
 
-public final class CNLURLCache: URLCache {
+open class CNLURLCache: URLCache {
     
-    var cacheExpired: TimeInterval = 24.0 * 60.0 * 60.0
+    open var cacheExpired: TimeInterval = 24.0 * 60.0 * 60.0
     
-    var ignoredPrefixes: [String] = []
+    open var ignoredPrefixes: [String] = []
     
     // UserInfo expires key
-    static var ExpiresKey = "CNLURLCache";
+    open static var ExpiresKey = "CNLURLCache";
     
     // get cache response for a request
-    override public func cachedResponse(for request: URLRequest) -> CachedURLResponse? {
+    override open func cachedResponse(for request: URLRequest) -> CachedURLResponse? {
         // create empty response
         
         if let url = request.url?.absoluteString {
@@ -45,7 +45,7 @@ public final class CNLURLCache: URLCache {
     }
     
     // store cached response
-    override public func storeCachedResponse(_ cachedResponse: CachedURLResponse, for forRequest: URLRequest) {
+    override open func storeCachedResponse(_ cachedResponse: CachedURLResponse, for forRequest: URLRequest) {
 
         // create userInfo dictionary
         var userInfo = cachedResponse.userInfo ?? [:]
