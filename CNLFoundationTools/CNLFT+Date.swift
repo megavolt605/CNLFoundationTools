@@ -58,24 +58,10 @@ public extension Date {
     
 }
 
-/// Date comparision operators
-
-public func > (left: Date, right: Date) -> Bool {
-    return left.compare(right) == ComparisonResult.orderedDescending
-}
-
+/// Additional date comparision operators
 public func >= (left: Date, right: Date) -> Bool {
-    let comparisonResult = left.compare(right)
-    return comparisonResult == ComparisonResult.orderedDescending ||
-        comparisonResult == ComparisonResult.orderedSame
+    return !(left < right)
 }
-
-public func < (left: Date, right: Date) -> Bool {
-    return left.compare(right) == ComparisonResult.orderedAscending
-}
-
 public func <= (left: Date, right: Date) -> Bool {
-    let comparisonResult = left.compare(right)
-    return comparisonResult == ComparisonResult.orderedAscending ||
-        comparisonResult == ComparisonResult.orderedSame
+    return !(left > right)
 }

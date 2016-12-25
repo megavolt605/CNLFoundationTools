@@ -43,13 +43,13 @@ public extension Dictionary {
         }
     }
     
-    /// Calls closure for each element of the array in the container
+    /// Calls closure for each element of the array in the dictionary array value
     ///
     /// - Parameters:
     ///   - name: Key value for the array container
     ///   - closure: Closure to be called if type check successed
-    public func array(_ name: Key, closure: (_ data: Dictionary) -> Void) {
-        if let possibleData = self[name] as? Array<Dictionary> {
+    public func array(_ name: Key, closure: (_ data: Any) -> Void) {
+        if let possibleData = self[name] as? Array<Any> {
             for item in possibleData {
                 closure(item)
             }
@@ -70,7 +70,7 @@ public extension Dictionary {
         }
     }
     
-    /// Maps dictionary values to another dictionary with same keys, using transform closure for values
+    /// Maps dictionary values to the another dictionary with same keys, using transform closure for values
     ///
     /// - Parameter f: Transform closure
     /// - Returns: Dictionary with the same keys and transformed values
@@ -82,7 +82,7 @@ public extension Dictionary {
         return ret
     }
     
-    /// Maps dictionary to array, using transform function for values. It skips nil results
+    /// Maps dictionary to the array, using transform function for values. It skips nil results
     ///
     /// - Parameter transform: Transform closure
     /// - Returns: Array with non-nil results of transform closure

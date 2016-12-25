@@ -91,7 +91,7 @@ public extension Array {
 
 public extension Array where Element : Hashable {
 
-    /// Resurns array with unique elements (elements of the array must be conformed to Hashable)
+    /// Returns array with unique elements (elements of the array must be conformed to Hashable)
     public var unique: [Element] {
         return Array(Set(self))
     }

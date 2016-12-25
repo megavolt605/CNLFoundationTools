@@ -11,7 +11,7 @@ import Foundation
 public extension TimeZone {
     
     /// - Returns: String with timezone of the date (ex: +0300, -0200, etc.)
-    public static func localTimeZoneString() -> String {
+    public static var localTimeZoneString: String {
         let seconds = NSTimeZone.local.secondsFromGMT()
         let minutes = abs(((seconds as Int) / 60) % 60)
         var minutesString = "\(minutes)"

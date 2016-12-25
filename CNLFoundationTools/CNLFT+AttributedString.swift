@@ -8,6 +8,8 @@
 
 import Foundation
 
+public typealias CNLStringWithAttrs = (string: String, attrs: Dictionary<String, Any>?)
+
 public extension NSAttributedString {
     
     /// Combine array of NSAttributedString into single one
@@ -20,8 +22,6 @@ public extension NSAttributedString {
             return $0
         }
     }
-    
-    public typealias CNLStringWithAttrs = (string: String, attrs: Dictionary<String, Any>?)
     
     /// Combine tuples (string, attributes) into NSAttributedString
     ///

@@ -14,7 +14,7 @@ public extension Data {
     /// Hexadecimal string representation of the data
     ///
     /// - Returns: String with data
-    public func toHexString() -> String {
+    public var toHexString: String {
         
         var hexString: String = ""
         let dataBytes = (self as NSData).bytes.bindMemory(to: CUnsignedChar.self, capacity: self.count)
@@ -26,25 +26,22 @@ public extension Data {
         return hexString
     }
     
-    /// String representation of the tata
+    /// UTF8 String representation of the data
+    public var toString: String? {
+        return String(data: self, encoding: .utf8)
+    }
+    
+    /// String representation of the data with specified encoding
     ///
     /// - Returns: String with data
-    public func toString() -> String {
-        
-        var hexString: String = ""
-        let dataBytes =  (self as NSData).bytes.bindMemory(to: CUnsignedChar.self, capacity: self.count)
-        
-        for i in 0..<count {
-            hexString +=  String(format: "%с", dataBytes[i])
-        }
-        
-        return hexString
+    public func toString(_ encoding: String.Encoding = .utf8) -> String? {
+        return String(data: self, encoding: encoding)
     }
     
     /// String with MD5 hash value of the data
     ///
     /// - Returns: MD5 string
-    public func md5() -> String {
+    public var md5: String {
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
         let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
         var hash = ""
