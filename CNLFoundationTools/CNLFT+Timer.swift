@@ -29,8 +29,8 @@ public extension Timer {
     ///   - interval: Repeating interval
     ///   - handler: Closure to be invoked
     /// - Returns: Timer instance
-    public class func schedule(repeatInterval interval: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer? {
-        let fireDate = interval + CFAbsoluteTimeGetCurrent()
+    public class func schedule(delay: TimeInterval = 0.0, repeatInterval interval: TimeInterval, handler: @escaping (Timer?) -> Void) -> Timer? {
+        let fireDate = delay + CFAbsoluteTimeGetCurrent()
         let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, interval, 0, 0, handler)
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
         return timer

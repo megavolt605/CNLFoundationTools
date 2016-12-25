@@ -402,6 +402,12 @@ let t1 = Timer.schedule(repeatInterval: 10.0) { timer in
     CFRunLoopRemoveTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
 }
 
+let t2 = Timer.schedule(delay: 0.5, repeatInterval: 10.0) { timer in
+    // some repeated code
+    
+    // when you need to remove timer from run loop, just call:
+    CFRunLoopRemoveTimer(CFRunLoopGetCurrent(), timer, CFRunLoopMode.commonModes)
+}
 ```
 
 ## Author
