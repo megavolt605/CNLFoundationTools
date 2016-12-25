@@ -262,8 +262,56 @@ Extracts digits from the string
 let s = "a1b23c456d".digitsOnly // "123456"
 ```
 
-## TODO: Update README.md for:
 ### Array extensions
+Lookup value within array with check closure
+```swift
+let a0 = [10,20,30,40,50]
+let r0 = a0.lookup { return $0 == 30 } // 30
+```
+
+Transform Array to Dictionary
+```swift
+let a0 = [10,20,30,40,50]
+let r1: [String: Int] = a0.map { return (key: "key\($0)", value: $0 * 10) }
+```
+
+Transform Array (without nil transforms)
+```swift
+let a1: [Int?] = [10,20,nil,30,40,nil,50]
+let r2 = a1.mapSkipNil { return $0 }
+```
+
+Transform Array to Dictionary (without nil transforms)
+```swift
+let a1: [Int?] = [10,20,nil,30,40,nil,50]
+let r3: [String: Int] = a1.mapSkipNil {
+    if let value = $0 {
+        return (key: "key\(value)", value: value * 10)
+    }
+    return nil
+}
+```
+
+Check element existance
+```swift
+let a0 = [10,20,30,40,50]
+let r4 = a0.exists { $0 == 30 }
+let r5 = a0.exists { $0 == 300 }
+```
+
+Remove first founded object from the array, that equals to scecified object (see `Equatable` protocol)
+```swift
+var r6 = [10,20,30,40,50]
+r6.removeObject(30)
+r6
+```
+
+Resurns array with unique elements (elements of the array must be conformed to `Hashable` protocol)
+```swift
+let r7 = ["a", "b", "c", "a", "c", "d", "c", "e"].unique
+```
+
+## TODO: Update README.md for:
 ### Dictionary extensions
 ### Date extensions
 ### TimeZone extensions
