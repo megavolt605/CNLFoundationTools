@@ -29,9 +29,9 @@ public extension Int {
         }
         
         res += huns[value / 100]
-        value = value % 100;
+        value = value % 100
         res += tens[value / 10]
-        value = value % 10;
+        value = value % 10
         res += ones[value]
         return res
     }

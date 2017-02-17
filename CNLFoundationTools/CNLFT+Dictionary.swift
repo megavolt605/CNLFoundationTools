@@ -49,7 +49,7 @@ public extension Dictionary {
     ///   - name: Key value for the array container
     ///   - closure: Closure to be called if type check successed
     public func array(_ name: Key, closure: (_ data: Any) -> Void) {
-        if let possibleData = self[name] as? Array<Any> {
+        if let possibleData = self[name] as? [Any] {
             for item in possibleData {
                 closure(item)
             }
@@ -75,7 +75,7 @@ public extension Dictionary {
     /// - Parameter f: Transform closure
     /// - Returns: Dictionary with the same keys and transformed values
     public func map(_ transform: (Key, Value) -> Value) -> [Key:Value] {
-        var ret = [Key:Value]()
+        var ret = [Key: Value]()
         for (key, value) in self {
             ret[key] = transform(key, value)
         }
@@ -101,8 +101,8 @@ public extension Dictionary {
     ///
     /// - Parameter transform: Transform closure (it mapped source pair of key-value to result pair)
     /// - Returns: Dictionary with transformed pairs key-value from the source, exluding nil transform results
-    public func mapSkipNil<K,V>(_ transform: ((Key, Value)) -> (K, V)?) -> [K:V] {
-        var result: [K:V] = [:]
+    public func mapSkipNil<K, V>(_ transform: ((Key, Value)) -> (K, V)?) -> [K: V] {
+        var result: [K: V] = [:]
         for item in self {
             if let entry = transform(item) {
                 result[entry.0] = entry.1
@@ -117,7 +117,7 @@ public extension Dictionary {
     /// - Parameter f: <#f description#>
     /// - Returns: <#return value description#>
     public func filter(_ check: (Key, Value) -> Bool) -> [Key:Value] {
-        var result = [Key:Value]()
+        var result = [Key: Value]()
         for (key, value) in self {
             if check(key, value) {
                 result[key] = value
@@ -130,7 +130,7 @@ public extension Dictionary {
     ///
     /// - Parameter source: Source dictionary
     /// - Returns: New dictionary with self and source elemenct
-    public func merge(_ source: Dictionary<Key, Value>) -> Dictionary<Key, Value> {
+    public func merge(_ source: [Key: Value]) -> [Key: Value] {
         var res = self
         
         for (key, value) in source {

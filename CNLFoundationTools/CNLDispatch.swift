@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// Run backgoundClosure async in global queue, then completionClosure async in main queue
 ///
 /// - Parameters:
@@ -38,7 +37,7 @@ public func asyncGlobal (_ backgroundClosure: @escaping () -> Void) {
 /// - Parameters:
 ///   - backgroundClosure: payload closure with result
 ///   - completionClosure: completion closure with parameter
-public func asyncGlobal<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: @escaping ((_ result: R) -> ()) ) {
+public func asyncGlobal<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: @escaping ((_ result: R) -> Void) ) {
     DispatchQueue.global(qos: .default).async {
         let res = backgroundClosure()
         DispatchQueue.main.async {
@@ -83,7 +82,7 @@ public func asyncMain (_ backgroundClosure: @escaping () -> Void ) {
 /// - Parameters:
 ///   - backgroundClosure: payload closure with result
 ///   - completionClosure: completion closure with parameter
-public func asyncMain<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: @escaping ((_ result: R) -> ()) ) {
+public func asyncMain<R> (_ backgroundClosure: @escaping () -> R, _ completionClosure: @escaping ((_ result: R) -> Void) ) {
     DispatchQueue.main.async {
         let res = backgroundClosure()
         completionClosure(res)
@@ -123,15 +122,14 @@ public func --> <T, U>(left: T?, right: (T?) -> U?) -> U? {
 
 @inline(__always)
 @discardableResult
-public func --> <T>(left: T, right: (T) -> ()) -> T {
+public func --> <T>(left: T, right: (T) -> Void) -> T {
     right(left)
     return left
 }
 
 @inline(__always)
 @discardableResult
-public func --> <T>(left: T?, right: (T?) -> ()) -> T? {
+public func --> <T>(left: T?, right: (T?) -> Void) -> T? {
     right(left)
     return left
 }
-

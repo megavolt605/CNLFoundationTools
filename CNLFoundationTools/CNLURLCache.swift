@@ -15,7 +15,7 @@ open class CNLURLCache: URLCache {
     open var ignoredPrefixes: [String] = []
     
     // UserInfo expires key
-    open static var ExpiresKey = "CNLURLCache";
+    open static var ExpiresKey = "CNLURLCache"
     
     // get cache response for a request
     override open func cachedResponse(for request: URLRequest) -> CachedURLResponse? {
@@ -32,9 +32,9 @@ open class CNLURLCache: URLCache {
         // try to get cache response, userInfo and cache date
         if let cachedResponse = super.cachedResponse(for: request), let userInfo = cachedResponse.userInfo, let cacheDate = userInfo[CNLURLCache.ExpiresKey] as? Date {
             // check if the cache data are expired
-            if (cacheDate.timeIntervalSinceNow < -cacheExpired) {
+            if cacheDate.timeIntervalSinceNow < -cacheExpired {
                 // remove old cache request
-                self.removeCachedResponse(for: request);
+                self.removeCachedResponse(for: request)
             } else {
                 // the cache request is still valid
                 response = cachedResponse

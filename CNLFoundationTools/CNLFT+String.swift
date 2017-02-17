@@ -23,7 +23,6 @@ public extension String {
         return self[self.characters.index(self.startIndex, offsetBy: i)]
     }
 
-
     /// Character as String by index
     ///
     /// - Parameter i: index
@@ -71,7 +70,7 @@ public extension String {
     /// - Returns: modified string
     public func appendSuffixBeforeExtension(_ suffix: String) -> String {
         let regex = try? NSRegularExpression(pattern: "(\\.\\w+$)", options: [])
-        return regex!.stringByReplacingMatches(in: self, options: [], range: NSMakeRange(0, self.length), withTemplate: "\(suffix)$1")
+        return regex!.stringByReplacingMatches(in: self, options: [], range: NSRange(location: 0, length: self.length), withTemplate: "\(suffix)$1")
     }
 
     /// Returns MD5 hash value of the string

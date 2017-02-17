@@ -46,7 +46,7 @@ public extension Data {
         let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
         var hash = ""
         
-        withUnsafeBytes() { (bytes: UnsafePointer<CChar>) in
+        withUnsafeBytes { (bytes: UnsafePointer<CChar>) in
             CC_MD5(bytes, CC_LONG(count), result)
             for i in 0..<digestLen {
                 hash += String(format: "%02x", result[i])
