@@ -92,7 +92,7 @@ Commonly used in other Complex Numbers projects.
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CNLFoundationTools/**/*.{h,m,swift,map}"
+  s.source_files  = "CNLFoundationTools/**/*.{h,m,swift}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
