@@ -22,7 +22,11 @@ public enum CNLLogLevel: Int {
     }
 }
 
-public func CNLLog(_ message: String, level: CNLLogLevel) {
+public func CNLLog(_ message: CustomStringConvertible, level: CNLLogLevel) {
+    CNLLogger.log(message, level: level)
+}
+
+public func CNLLog(_ message: [CustomStringConvertible], level: CNLLogLevel) {
     CNLLogger.log(message, level: level)
 }
 
@@ -30,8 +34,13 @@ public struct CNLLogger {
     
     static var level: CNLLogLevel = .debug
     
-    static func log(_ message: String, level: CNLLogLevel) {
+    static func log(_ message: CustomStringConvertible, level: CNLLogLevel) {
         print("\(level.description) \(message)")
+    }
+    
+    static func log(_ message: [CustomStringConvertible], level: CNLLogLevel) {
+        let combinedMessage = message.map { return $0.description }.joined()
+        print("\(level.description) \(combinedMessage)")
     }
     
 }
