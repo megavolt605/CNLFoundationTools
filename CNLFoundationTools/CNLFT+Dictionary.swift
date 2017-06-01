@@ -130,7 +130,8 @@ public extension Dictionary {
     ///
     /// - Parameter source: Source dictionary
     /// - Returns: New dictionary with self and source elemenct
-    public func merge(_ source: [Key: Value]) -> [Key: Value] {
+    public func merge(_ source: [Key: Value]?) -> [Key: Value] {
+        guard let source = source else { return self }
         var res = self
         
         for (key, value) in source {
