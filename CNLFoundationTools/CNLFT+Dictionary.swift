@@ -8,68 +8,14 @@
 
 import Foundation
 
-public extension Dictionary {
-    
-    /// Get value for key with type check, returns default value when key doeas not exist either type check was failed
-    ///
-    /// - Parameters:
-    ///   - name: Key value
-    ///   - defaultValue: Default value
-    /// - Returns: Value for the key (or defaultValue)
-    public func value<T>(_ name: Key, _ defaultValue: T) -> T {
-        let data = self[name]
-        if let res = data as? T {
-            return res
-        }
-        return defaultValue
-    }
-    
-    /// Returns value for key with type check
-    ///
-    /// - Parameter name: Key value
-    /// - Returns: Value for the key (or nil when type check was failed)
-    public func value<T>(_ name: Key) -> T? {
-        return self[name] as? T
-    }
-    
-    /// Calls closure with sub-dictionary for key with type check
-    ///
-    /// - Parameters:
-    ///   - name: Key value for dictionary container
-    ///   - closure: Closure to be called if type check successed
-    public func dictionary(_ name: Key, closure: (_ data: Dictionary) -> Void) {
-        if let possibleData = self[name] as? Dictionary {
-            closure(possibleData)
-        }
-    }
-    
-    /// Calls closure for each element of the array in the dictionary array value
-    ///
-    /// - Parameters:
-    ///   - name: Key value for the array container
-    ///   - closure: Closure to be called if type check successed
-    public func array(_ name: Key, closure: (_ data: Any) -> Void) {
-        if let possibleData = self[name] as? [Any] {
-            for item in possibleData {
-                closure(item)
-            }
-        }
-    }
-    
-    /// Special implementation `value<T>` function for Date class
-    ///
-    /// - Parameters:
-    ///   - name: Key value
-    ///   - defaultValue: Default value
-    /// - Returns: Date struct with value of unix timestamp from the key, nil if type check was failed
-    public func date(_ name: Key, _ defaultValue: Date? = nil) -> Date? {
-        if let data = self[name] as? TimeInterval {
-            return Date(timeIntervalSince1970: data)
-        } else {
-            return defaultValue
-        }
-    }
-    
+public protocol CNLDictionaryDecodable {
+    static func valueFrom(_ any: Any) -> Self?
+}
+
+public typealias CNLDictionary = [String: Any]
+public typealias CNLArray = [CNLDictionary]
+
+extension Dictionary {
     /// Maps dictionary values to the another dictionary with same keys, using transform closure for values
     ///
     /// - Parameter f: Transform closure
@@ -114,8 +60,8 @@ public extension Dictionary {
     
     /// Filter the dictionary using closure
     ///
-    /// - Parameter f: <#f description#>
-    /// - Returns: <#return value description#>
+    /// - Parameter check: filtering closure
+    /// - Returns: New dictionary with filtered keys:values
     public func filter(_ check: (Key, Value) -> Bool) -> [Key:Value] {
         var result = [Key: Value]()
         for (key, value) in self {
@@ -126,11 +72,11 @@ public extension Dictionary {
         return result
     }
     
-    /// Merge dictionary with another dictionary. When key values has intersections, values from the source dictionary will override existing values
+    /// Merge dictionary with another dictionary and return result. When key values has intersections, values from the source dictionary will override existing values
     ///
     /// - Parameter source: Source dictionary
     /// - Returns: New dictionary with self and source elemenct
-    public func merge(_ source: [Key: Value]?) -> [Key: Value] {
+    public func merged(with source: [Key: Value]?) -> [Key: Value] {
         guard let source = source else { return self }
         var res = self
         
@@ -141,4 +87,111 @@ public extension Dictionary {
         return res
     }
     
+    /// Merge dictionary with another dictionary (mutable). When key values has intersections, values from the source dictionary will override existing values
+    ///
+    /// - Parameter source: Source dictionary
+    public mutating func merge(with source: [Key: Value]?) {
+        guard let source = source else { return }
+        for (key, value) in source {
+            self[key] = value
+        }
+    }
+    
+    /// Get value for key with type check, returns default value when key doeas not exist either type check was failed
+    ///
+    /// - Parameters:
+    ///   - name: Key value
+    ///   - defaultValue: Default value
+    /// - Returns: Value for the key (or defaultValue)
+    public func value<T>(_ name: Key, _ defaultValue: T) -> T! where T: CNLDictionaryDecodable {
+        if let data = self[name], let value = T.valueFrom(data) {
+            return value
+        }
+        return defaultValue
+    }
+    
+    /// Returns value for key with type check
+    ///
+    /// - Parameter name: Key value
+    /// - Returns: Value for the key (or nil when type check was failed)
+    public func value<T>(_ name: Key) -> T? where T: CNLDictionaryDecodable {
+        if let data = self[name] {
+            return T.valueFrom(data)
+        }
+        return nil
+    }
+
+    /// Calls closure with sub-dictionary for key with type check
+    ///
+    /// - Parameters:
+    ///   - name: Key value for dictionary container
+    ///   - closure: Closure to be called if type check successed
+    public func dictionary(_ name: Key, closure: (_ data: Dictionary) -> Void) {
+        if let possibleData = self[name] as? Dictionary {
+            closure(possibleData)
+        }
+    }
+    
+    /// Calls closure for each element of the array in the dictionary array value
+    ///
+    /// - Parameters:
+    ///   - name: Key value for the array container
+    ///   - closure: Closure to be called if type check successed
+    public func array(_ name: Key, closure: (_ data: Any) -> Void) {
+        if let possibleData = self[name] as? [Any] {
+            possibleData.forEach { closure($0) }
+        }
+    }
+}
+
+extension Bool: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> Bool? {
+        return any as? Bool
+    }
+}
+
+extension String: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> String? {
+        return any as? String
+    }
+}
+
+extension Int: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> Int? {
+        return any as? Int
+    }
+}
+
+extension Float: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> Float? {
+        return any as? Float
+    }
+}
+
+extension Double: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> Double? {
+        return any as? Double
+    }
+}
+
+extension URL: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> URL? {
+        return any as? URL
+    }
+}
+
+extension Date: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> Date? {
+        if let data = any as? TimeInterval {
+            return Date(timeIntervalSince1970: data)
+        } else {
+            return nil
+        }
+    }
+}
+
+extension Array: CNLDictionaryDecodable {
+    public static func valueFrom(_ any: Any) -> Array? {
+        return any as? Array
+    }
 }
