@@ -176,7 +176,9 @@ extension Double: CNLDictionaryDecodable {
 
 extension URL: CNLDictionaryDecodable {
     public static func valueFrom(_ any: Any) -> URL? {
-        return any as? URL
+        if let url = any as? URL { return url }
+        if let urlString = any as? String { return URL(string: urlString) }
+        return nil
     }
 }
 
