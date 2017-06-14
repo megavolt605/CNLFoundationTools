@@ -178,4 +178,38 @@ public extension Dictionary { // where Key: CNLDictionaryKey {
         }
     }
     
+    private func _check(_ list: CNLArray, _ path: String = "") {
+        list.forEach { item in
+            for (k, v) in item {
+                if v is Bool || v is String || v is Int || v is Double || v is [Int] || v is [String] {
+                    return
+                }
+                if let d = v as? CNLDictionary {
+                    _check([d], "\(path).\(k)")
+                    return
+                }
+                if let a = v as? CNLArray {
+                    _check(a, "\(path).\(k)")
+                    return
+                }
+                let t = type(of: v)
+                fatalError("Invalid value: \(path)\(k) = \(v) of type \(t)")
+            }
+        }
+    }
+    
+    public func check() {
+        if let dictionry = self as? CNLDictionary {
+            _check([dictionry])
+            return
+        }
+        fatalError("Check failed") 
+    }
+    
+    public func write(to url: URL, atomically: Bool = true) {
+        check()
+        let dictionary = NSDictionary(dictionary: self)
+        dictionary.write(to: url, atomically: atomically)
+    }
+    
 }
