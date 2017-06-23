@@ -37,5 +37,12 @@ public struct CNLLocationCoordinate2DRect {
         self.topLeft = topLeft
         self.topRight = topRight
     }
+    
+    public init() {
+        bottomLeft = CLLocationCoordinate2D()
+        bottomRight = CLLocationCoordinate2D()
+        topLeft = CLLocationCoordinate2D()
+        topRight = CLLocationCoordinate2D()
+    }
 
 }
