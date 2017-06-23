@@ -24,3 +24,18 @@ public extension CLLocation {
     }
     
 }
+
+public struct CNLLocationCoordinate2DRect {
+    public var bottomLeft: CLLocationCoordinate2D
+    public var bottomRight: CLLocationCoordinate2D
+    public var topLeft: CLLocationCoordinate2D
+    public var topRight: CLLocationCoordinate2D
+    
+    public init(bottomLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, topLeft: CLLocationCoordinate2D, topRight: CLLocationCoordinate2D) {
+        self.bottomLeft = bottomLeft
+        self.bottomRight = bottomRight
+        self.topLeft = topLeft
+        self.topRight = topRight
+    }
+
+}

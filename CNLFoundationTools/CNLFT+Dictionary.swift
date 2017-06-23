@@ -69,7 +69,7 @@ public extension Dictionary { // where Key: CNLDictionaryKey {
     }
 
     public func array<T>(_ name: Key) -> [T] where Key: CNLDictionaryKey {
-        return self[name] as? [T] ?? [] 
+        return self[name] as? [T] ?? []
     }
 
     /// Special implementation `value<T>` function for Date class
@@ -203,7 +203,7 @@ public extension Dictionary { // where Key: CNLDictionaryKey {
             _check([dictionry])
             return
         }
-        fatalError("Check failed") 
+        fatalError("Check failed")
     }
     
     public func write(to url: URL, atomically: Bool = true) {
