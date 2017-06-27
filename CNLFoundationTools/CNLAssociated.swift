@@ -11,7 +11,7 @@ import Foundation
 /// Generic helper class for assotiating stored variables within extensions
 ///
 /// Typical usage:
-/// ```
+/// ```swift
 /// var variableKey = "variableKey"
 /// extension "some" {
 ///     var "variable": "type" {

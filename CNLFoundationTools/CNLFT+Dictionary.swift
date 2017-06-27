@@ -21,20 +21,10 @@ public protocol CNLDictionaryValue: Hashable { }
 
 // MARK: - CNLDictionaryValue
 extension Bool: CNLDictionaryValue { }
-
-// MARK: - CNLDictionaryValue
 extension Int: CNLDictionaryValue { }
-
-// MARK: - CNLDictionaryValue
 extension String: CNLDictionaryValue { }
-
-// MARK: - CNLDictionaryValue
 extension Float: CNLDictionaryValue { }
-
-// MARK: - CNLDictionaryValue
 extension Double: CNLDictionaryValue { }
-
-// MARK: - <#CNLDictionaryKey#>
 extension String: CNLDictionaryKey { }
 
 // MARK: - Extenstion for Dictionary for CNLDictionary purposes

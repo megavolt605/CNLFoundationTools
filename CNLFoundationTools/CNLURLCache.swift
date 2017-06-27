@@ -22,8 +22,8 @@ open class CNLURLCache: URLCache {
     
     /// Get cache response for a request
     override open func cachedResponse(for request: URLRequest) -> CachedURLResponse? {
-        // create empty response
         
+        // create empty response
         if let url = request.url?.absoluteString {
             if (ignoredContent.filter { return url.contains($0) }).count != 0 {
                 return nil
