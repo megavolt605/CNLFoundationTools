@@ -30,14 +30,14 @@ import Foundation
 /// ```
 open class CNLAssociated<T>: NSObject, NSCopying {
     
-    private var value: T?
+    private var closure: T?
     
-    /// Default initializer with value
+    /// Default initializer with closure
     ///
     /// - Parameter value: Value
-    public convenience init(value: T?) {
+    public convenience init(closure: T?) {
         self.init()
-        self.value = value
+        self.closure = closure
     }
     
     /// Default copy function
@@ -46,7 +46,7 @@ open class CNLAssociated<T>: NSObject, NSCopying {
     /// - Returns: Copied instance
     @objc open func copy(with zone: NSZone?) -> Any {
         let wrapper: CNLAssociated<T> = CNLAssociated<T>()
-        wrapper.value = value
+        wrapper.closure = closure
         return wrapper
     }
     
