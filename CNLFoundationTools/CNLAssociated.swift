@@ -30,7 +30,7 @@ import Foundation
 /// ```
 open class CNLAssociated<T>: NSObject, NSCopying {
     
-    private var closure: T?
+    open var closure: T?
     
     /// Default initializer with closure
     ///
