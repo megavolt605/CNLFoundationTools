@@ -8,19 +8,37 @@
 
 import Foundation
 
+/// Common dictionary
 public typealias CNLDictionary = [String: Any]
+
+/// Array of CNLDictionary
 public typealias CNLArray = [CNLDictionary]
 
+/// Common dictionary key value
 public protocol CNLDictionaryKey: Hashable { }
+/// Common dictionary value
 public protocol CNLDictionaryValue: Hashable { }
+
+// MARK: - CNLDictionaryValue
 extension Bool: CNLDictionaryValue { }
+
+// MARK: - CNLDictionaryValue
 extension Int: CNLDictionaryValue { }
+
+// MARK: - CNLDictionaryValue
 extension String: CNLDictionaryValue { }
+
+// MARK: - CNLDictionaryValue
 extension Float: CNLDictionaryValue { }
+
+// MARK: - CNLDictionaryValue
 extension Double: CNLDictionaryValue { }
+
+// MARK: - <#CNLDictionaryKey#>
 extension String: CNLDictionaryKey { }
 
-public extension Dictionary { // where Key: CNLDictionaryKey {
+// MARK: - Extenstion for Dictionary for CNLDictionary purposes
+public extension Dictionary {
     
     /// Get value for key with type check, returns default value when key doeas not exist either type check was failed
     ///
@@ -68,6 +86,10 @@ public extension Dictionary { // where Key: CNLDictionaryKey {
         }
     }
 
+    /// Converts values of the key to an array
+    ///
+    /// - Parameter name: Key value
+    /// - Returns: Result array
     public func array<T>(_ name: Key) -> [T] where Key: CNLDictionaryKey {
         return self[name] as? [T] ?? []
     }
@@ -198,6 +220,7 @@ public extension Dictionary { // where Key: CNLDictionaryKey {
         }
     }
     
+    /// Checks dictionary conformity NSDictionary.write(to:atomically). Calls fatalError() if not
     public func check() {
         if let dictionry = self as? CNLDictionary {
             _check([dictionry])
@@ -206,6 +229,11 @@ public extension Dictionary { // where Key: CNLDictionaryKey {
         fatalError("Check failed")
     }
     
+    /// Stores plist representation of the dictionary to the url
+    ///
+    /// - Parameters:
+    ///   - url: <#url description#>
+    ///   - atomically: <#atomically description#>
     public func write(to url: URL, atomically: Bool = true) {
         check()
         let dictionary = NSDictionary(dictionary: self)

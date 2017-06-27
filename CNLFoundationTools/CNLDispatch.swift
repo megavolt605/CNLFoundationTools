@@ -89,12 +89,12 @@ public func asyncMain<R> (_ backgroundClosure: @escaping () -> R, _ completionCl
     }
 }
 
-@inline(__always)
 /// Brackets call of closure in objc_sync_enter and objc_sync_exit calls, assotiated with object
 ///
 /// - Parameters:
-///   - object: <#object description#>
-///   - closure: <#closure description#>
+///   - object: Object used as lock souorce
+///   - closure: Closure to execute while lock is active
+@inline(__always)
 public func syncCritical(_ object: Any, _ closure: () -> Void) {
     objc_sync_enter(object)
     closure()
@@ -108,18 +108,36 @@ precedencegroup CNFTWith {
 
 infix operator -->: CNFTWith
 
+/// Executes right part with left part as an argument, returns retult of execution (not Optional)
+///
+/// - Parameters:
+///   - left: Source value
+///   - right: Closue to execute
+/// - Returns: Result of left closure
 @inline(__always)
 @discardableResult
 public func --> <T, U>(left: T, right: (T) -> U) -> U {
     return right(left)
 }
 
+/// Executes right part with left part as an argument, returns retult of execution (Optional)
+///
+/// - Parameters:
+///   - left: Source value
+///   - right: Closue to execute
+/// - Returns: Result of left closure
 @inline(__always)
 @discardableResult
 public func --> <T, U>(left: T?, right: (T?) -> U?) -> U? {
     return right(left)
 }
 
+/// Executes right part with left part as an argument, returns left part (not Optional)
+///
+/// - Parameters:
+///   - left: Source value
+///   - right: Closue to execute
+/// - Returns: Result of left closure
 @inline(__always)
 @discardableResult
 public func --> <T>(left: T, right: (T) -> Void) -> T {
@@ -127,6 +145,12 @@ public func --> <T>(left: T, right: (T) -> Void) -> T {
     return left
 }
 
+/// Executes right part with left part as an argument, returns left part (Optional)
+///
+/// - Parameters:
+///   - left: Source value
+///   - right: Closue to execute
+/// - Returns: Result of left closure
 @inline(__always)
 @discardableResult
 public func --> <T>(left: T?, right: (T?) -> Void) -> T? {

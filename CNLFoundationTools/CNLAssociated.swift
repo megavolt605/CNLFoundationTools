@@ -8,11 +8,12 @@
 
 import Foundation
 
-/// Helper class for assotiating variables within extensions
+/// Generic helper class for assotiating stored variables within extensions
 ///
 /// Typical usage:
+/// ```
 /// var variableKey = "variableKey"
-/// extension "some"
+/// extension "some" {
 ///     var "variable": "type" {
 ///         get {
 ///             if let value = (objc_getAssociatedObject(self, &variableKey) as? CNLAssociated<"type">)?.closure {
@@ -25,20 +26,28 @@ import Foundation
 ///             objc_setAssociatedObject(self, &variableKey, CNLAssociated<"type">(closure: newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
 ///         }
 ///     }
-/// end
-
+/// }
+/// ```
 open class CNLAssociated<T>: NSObject, NSCopying {
     
-    open var closure: T?
+    private var value: T?
     
-    public convenience init(closure: T?) {
+    /// Default initializer with value
+    ///
+    /// - Parameter value: Value
+    public convenience init(value: T?) {
         self.init()
-        self.closure = closure
+        self.value = value
     }
     
+    /// Default copy function
+    ///
+    /// - Parameter zone: Zone
+    /// - Returns: Copied instance
     @objc open func copy(with zone: NSZone?) -> Any {
         let wrapper: CNLAssociated<T> = CNLAssociated<T>()
-        wrapper.closure = closure
+        wrapper.value = value
         return wrapper
     }
+    
 }

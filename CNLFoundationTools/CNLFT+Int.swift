@@ -10,12 +10,12 @@ import Foundation
 
 public extension Int {
     
-    // converts to string
+    /// Converts to string
     public var toString: String {
         return "\(self)"
     }
     
-    // converts to string with Roman number
+    /// Converts to string with Roman number representation
     public var toRomanString: String {
         let huns: [String] = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
         let tens: [String] = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]

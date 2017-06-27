@@ -10,16 +10,26 @@ import Foundation
 
 /// Deep link parameter
 public struct CNLDeepLinkParameters {
+    /// Known parameters
     public var parameters: [(name: String, value: String?)] = []
     
+    /// Returns String parameter by its name
+    ///
+    /// - Parameter name: Parameter name
     public subscript (name: String) -> String? {
         return parameters.filter { return $0.name == name }.first?.value
     }
     
+    /// Returns Int parameter by its name
+    ///
+    /// - Parameter name: Parameter name
     public subscript (name: String) -> Int? {
         return parameters.filter { return $0.name == name }.first?.value?.toInt
     }
     
+    /// Check parameter existance
+    ///
+    /// - Parameter name: Parameter name
     public func exists(_ name: String) -> Bool {
         return parameters.filter { return $0.name == name }.count != 0
     }
@@ -27,9 +37,13 @@ public struct CNLDeepLinkParameters {
 
 /// Components of deep link
 public struct CNLDeepLinkComponents {
+    /// Deep link scheme
     public var scheme: String
+    /// Deep link host
     public var host: String
+    /// Deep link path (Optional)
     public var path: String?
+    /// Deep link parameters
     public var parameters: CNLDeepLinkParameters
 }
 
@@ -49,6 +63,10 @@ public struct CNLDeepLinkComponents {
 ///     }
 /// }
 public struct CNLDeepLink {
+    /// Parse URL and creates CNLDeepLinkComponents struct
+    ///
+    /// - Parameter url: Source url
+    /// - Returns: Result CNLDeepLinkComponents struct
     public static func parseURL(_ url: URL) -> CNLDeepLinkComponents? {
         var parameters = CNLDeepLinkParameters()
         let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)

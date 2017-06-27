@@ -2,13 +2,13 @@
 Basic tools and extensions for Foundation framework
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://cocoapods.org/pods/CNLFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.13-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/CNLFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.14-blue.svg" alt="CocoaPods compatible" /></a>
 
 ## Installation
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects.
+[CocoaPods](https://cocoapods.org/) is a dependency manager for Cocoa projects
 
 Specify CNLFoundationTools into your project's Podfile:
 
@@ -19,6 +19,10 @@ use_frameworks!
 
 pod 'CNLFoundationTools'
 ```
+
+## Documentation
+
+You can found yazzy-generated documentation right here, in the Docs folder
 
 ## Usage
 
@@ -416,4 +420,4 @@ let t2 = Timer.schedule(delay: 0.5, repeatInterval: 10.0) { timer in
 
 ## License
 
-CNLFoundationTools is released under [MIT license](https://raw.githubusercontent.com/xmartlabs/XLActionController/master/LICENSE) and copyrighted by Igor Smirnov.
+CNLFoundationTools is released under [MIT license](https://raw.githubusercontent.com/xmartlabs/XLActionController/master/LICENSE) and copyrighted by Igor Smirnov

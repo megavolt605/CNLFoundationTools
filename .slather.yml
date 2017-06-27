@@ -1,0 +1,6 @@
+# coverage_service: coveralls
+xcodeproj: CNLFoundationTools.xcodeproj
+scheme: CNLFoundationFTools
+#ignore:
+#  - CNLFoundationToolsTests/*
+#  - Pods/*
