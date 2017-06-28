@@ -1,6 +1,12 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/igor/src/ComplexNumbers/CNLFoundationTools/CNLFoundationTools/CNLAssociated.swift",
+      "line": 33,
+      "symbol": "CNLAssociated.closure",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/igor/src/ComplexNumbers/CNLFoundationTools"
 }
