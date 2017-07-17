@@ -54,7 +54,7 @@ public struct CNLLocationCoordinate2DRect {
         self.topRight = topRight
     }
     
-    /// Default iinitializer. All coordinates sets to zero
+    /// Default initializer. All coordinates sets to zero
     public init() {
         bottomLeft = CLLocationCoordinate2D()
         bottomRight = CLLocationCoordinate2D()
