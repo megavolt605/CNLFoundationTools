@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CNLFoundationTools"
-  s.version      = "0.0.14"
+  s.version      = "0.0.15"
   s.summary      = "Common extensions to Foundation."
 
   # This description is used to generate tags and improve search results.
