@@ -37,7 +37,6 @@
 		780426AF1DD5E0C900878F72 /* CNLFT+AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLFT+AttributedString.swift"; sourceTree = "<group>"; };
 		780426B11DD5E17B00878F72 /* CNLFT+Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLFT+Timer.swift"; sourceTree = "<group>"; };
 		780426B31DD5E27000878F72 /* CNLFoundationTools.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CNLFoundationTools.podspec; sourceTree = SOURCE_ROOT; };
-		780426B61DD5E7E000878F72 /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
 		780426D71DD5F8F500878F72 /* CNLAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLAssociated.swift; sourceTree = "<group>"; };
 		780426D91DD5F92600878F72 /* CNLLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLLog.swift; sourceTree = "<group>"; };
 		780426DB1DD5FD2C00878F72 /* CNLDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLDispatch.swift; sourceTree = "<group>"; };
@@ -132,7 +131,6 @@
 				780426B31DD5E27000878F72 /* CNLFoundationTools.podspec */,
 				780426981DD5DB7A00878F72 /* CNLFoundationTools.h */,
 				780426991DD5DB7A00878F72 /* Info.plist */,
-				780426B51DD5E7D300878F72 /* CommonCrypto */,
 			);
 			name = "Supporting Files";
 			path = CNFoundationTools;
@@ -146,15 +144,6 @@
 			);
 			name = CNFoundationTools;
 			path = CNLFoundationTools;
-			sourceTree = "<group>";
-		};
-		780426B51DD5E7D300878F72 /* CommonCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				780426B61DD5E7E000878F72 /* module.map */,
-			);
-			name = CommonCrypto;
-			path = CNLFoundationTools/CommonCrypto;
 			sourceTree = "<group>";
 		};
 		780426D51DD5F8B000878F72 /* Extensions */ = {
@@ -475,7 +464,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/CNLFoundationTools/CommonCrypto";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -522,7 +510,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/CNLFoundationTools/CommonCrypto";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

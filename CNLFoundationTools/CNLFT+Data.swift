@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CommonCrypto
+//import CommonCrypto
 
 public extension Data {
     
@@ -38,6 +38,7 @@ public extension Data {
         return String(data: self, encoding: encoding)
     }
     
+    /*
     /// String with MD5 hash value of the data
     ///
     /// - Returns: MD5 string
@@ -55,5 +56,6 @@ public extension Data {
         }
         return String(format: hash as String)
     }
+    */
     
 }

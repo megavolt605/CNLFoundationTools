@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CommonCrypto
+//import CommonCrypto
 
 public extension String {
     
@@ -73,6 +73,7 @@ public extension String {
         return regex!.stringByReplacingMatches(in: self, options: [], range: NSRange(location: 0, length: self.length), withTemplate: "\(suffix)$1")
     }
 
+    /*
     /// Returns MD5 hash value of the string
     public var md5: String {
         let str = self.cString(using: String.Encoding.utf8)
@@ -90,7 +91,8 @@ public extension String {
         
         return String(format: hash as String)
     }
-
+    */
+    
     /// Return truncated string by specified length, and append trailing stirng (if any)
     ///
     /// - Parameters:

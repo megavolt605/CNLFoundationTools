@@ -109,12 +109,12 @@ Commonly used in other Complex Numbers projects.
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
 
-  s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CNLFoundationTools/CNLFoundationTools/CommonCrypto' }
-  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/CNLFoundationTools/CNLFoundationTools/CommonCrypto' }
+  #s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CNLFoundationTools/CNLFoundationTools/CommonCrypto' }
+  #s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '$(PODS_ROOT)/CNLFoundationTools/CNLFoundationTools/CommonCrypto' }
 
   # s.module_map = "CNLFoundationTools/CommonCrypto/module.map"
 
-  s.preserve_paths = "CNLFoundationTools/CommonCrypto/module.map"
+  #s.preserve_paths = "CNLFoundationTools/CommonCrypto/module.map"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
