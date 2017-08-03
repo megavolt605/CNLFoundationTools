@@ -36,7 +36,7 @@ public extension String {
     public subscript (r: CountableRange<Int>) -> String {
         let start = characters.index(startIndex, offsetBy: r.lowerBound)
         let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
-        return self[Range(start ..< end)]
+        return String(self[Range(start ..< end)])
     }
 
     /// Substring with Closed Range
@@ -45,7 +45,7 @@ public extension String {
     public subscript (r: CountableClosedRange<Int>) -> String {
         let start = characters.index(startIndex, offsetBy: r.lowerBound)
         let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound + 1)
-        return self[Range(start ..< end)]
+        return String(self[Range(start ..< end)])
     }
 
     /// Converts string to Double?

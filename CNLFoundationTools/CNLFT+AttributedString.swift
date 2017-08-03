@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias CNLStringWithAttrs = (string: String, attrs: [String: Any]?)
+public typealias CNLStringWithAttrs = (string: String, attrs: [NSAttributedStringKey: Any]?)
 
 public extension NSAttributedString {
     
