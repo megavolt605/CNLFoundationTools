@@ -30,10 +30,10 @@ public enum CNLLogLevel: Int {
     case nolog
     
     /// Array of all possible value
-    static let allValues: [CNLLogLevel] = [debug, network, info, warning, error, nolog]
+    public static let allValues: [CNLLogLevel] = [debug, network, info, warning, error, nolog]
     
     /// Icon string
-    var icon: String {
+    public var icon: String {
         switch self {
         case .debug: return "➡️"
         case .network: return "🌐"
@@ -67,14 +67,14 @@ public func CNLLog(_ messages: [CustomStringConvertible], level: CNLLogLevel, se
 /// Pretty logger to the debug console
 public struct CNLLogger {
     
-    static var level: CNLLogLevel = .debug
+    public static var level: CNLLogLevel = .debug
     
     /// Log message to console with specified level
     ///
     /// - Parameters:
     ///   - message: Message to log
     ///   - level: Log level
-    static func log(_ message: CustomStringConvertible, level: CNLLogLevel) {
+    public static func log(_ message: CustomStringConvertible, level: CNLLogLevel) {
         if CNLLogger.level.rawValue <= level.rawValue && level != .nolog {
             print("\(level.icon) \(message)")
         }
@@ -86,7 +86,7 @@ public struct CNLLogger {
     ///   - messages: Array of messages to log
     ///   - level: Log level
     ///   - separator: Optional separator string
-    static func log(_ messages: [CustomStringConvertible], level: CNLLogLevel, separator: String? = nil) {
+    public static func log(_ messages: [CustomStringConvertible], level: CNLLogLevel, separator: String? = nil) {
         if CNLLogger.level.rawValue <= level.rawValue && level != .nolog {
             let combinedMessage = messages.map { return $0.description }.joined(separator: separator ?? "")
             print("\(level.icon) \(combinedMessage)")
