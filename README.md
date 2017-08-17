@@ -2,7 +2,7 @@
 Basic tools and extensions for Foundation framework
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://cocoapods.org/pods/CNLFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.16-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/CNLFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.17-blue.svg" alt="CocoaPods compatible" /></a>
 
 ## Installation
 
@@ -378,17 +378,12 @@ let r2 = d0.toString(.utf8) // "abcd😎"
 let r3 = d0.md5 // "3ba8a2f354b10efdf1bd7658adb46365"
 ```
 
-### AttributedString extensions
+### AttributedString `+` operator
 ```swift
 // Combine array of NSAttributedString into single one
 let as0 = NSAttributedString(string: "test1", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 10.0)])
 let as1 = NSAttributedString(string: "test2", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 16.0)])
-let r0 = NSAttributedString.mixAttributedStrings([as0, as1])
-
-// Combine tuples (string, attributes) into NSAttributedString
-let a0 = CNLStringWithAttrs(string: "test3", attrs: [NSFontAttributeName : UIFont.systemFont(ofSize: 10.0)])
-let a1 = CNLStringWithAttrs(string: "test4", attrs: [NSFontAttributeName : UIFont.systemFont(ofSize: 16.0)])
-let r1 = NSAttributedString.mixStrings([a0, a1])
+let r0 = as0 + as1
 ```
 
 ### Timer extensions

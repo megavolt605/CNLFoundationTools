@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//import CommonCrypto
 
 public extension String {
     
@@ -101,7 +100,8 @@ public extension String {
     /// - Returns: Result string
     public func truncate(_ length: Int, trailing: String? = nil) -> String {
         if self.length > length {
-            return self.substring(to: self.characters.index(self.startIndex, offsetBy: length)) + (trailing ?? "")
+            let to = self.characters.index(self.startIndex, offsetBy: length)
+            return String(self[..<to]) + (trailing ?? "")
         } else {
             return self
         }
