@@ -13,4 +13,5 @@ Commonly used in other Complex Numbers projects.
   s.source       = { :git => "https://github.com/megavolt605/CNLFoundationTools.git", :tag => "#{s.version}" }
   s.source_files  = "CNLFoundationTools/**/*.{h,m,swift}"
   s.framework  = "Foundation", "CoreLocation"
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
 end
