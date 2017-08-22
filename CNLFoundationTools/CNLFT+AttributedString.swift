@@ -16,7 +16,8 @@ public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributed
 }
 
 extension NSAttributedString {
-    public static func += (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
-        return lhs + rhs
+    public static func += (lhs: inout NSAttributedString, rhs: NSAttributedString) {
+        // swiftlint:disable:next shorthand_operator
+        lhs = lhs + rhs
     }
 }
