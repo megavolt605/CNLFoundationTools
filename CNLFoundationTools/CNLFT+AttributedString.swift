@@ -14,3 +14,9 @@ public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributed
     result.append(rhs)
     return result
 }
+
+extension NSAttributedString {
+    public static func += (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
+        return lhs + rhs
+    }
+}
