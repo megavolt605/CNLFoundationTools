@@ -100,8 +100,12 @@ public extension String {
     /// - Returns: Result string
     public func truncate(_ length: Int, trailing: String? = nil) -> String {
         if self.length > length {
-            let to = self.characters.index(self.startIndex, offsetBy: length)
-            return String(self[..<to]) + (trailing ?? "")
+            #if swift(>=4.0)
+                let to = self.characters.index(self.startIndex, offsetBy: length)
+                return String(self[..<to]) + (trailing ?? "")
+            #else
+                return self.substring(to: self.characters.index(self.startIndex, offsetBy: length)) + (trailing ?? "")
+            #endif
         } else {
             return self
         }
