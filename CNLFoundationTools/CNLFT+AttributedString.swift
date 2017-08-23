@@ -14,10 +14,3 @@ public func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributed
     result.append(rhs)
     return result
 }
-
-extension NSAttributedString {
-    public static func += (lhs: inout NSAttributedString, rhs: NSAttributedString) {
-        // swiftlint:disable:next shorthand_operator
-        lhs = lhs + rhs
-    }
-}
