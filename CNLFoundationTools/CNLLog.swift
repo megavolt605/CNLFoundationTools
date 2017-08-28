@@ -45,27 +45,37 @@ public enum CNLLogLevel: Int {
     }
 }
 
-/// Log message to console with specified level
-///
-/// - Parameters:
-///   - message: Message to log
-///   - level: Log level
-public func CNLLog(_ message: CustomStringConvertible, level: CNLLogLevel) {
-    CNLLogger.log(message, level: level)
-}
-
-/// Log messages to console with specified level
-///
-/// - Parameters:
-///   - messages: Array of messages to log
-///   - level: Log level
-///   - separator: Optional separator string
-public func CNLLog(_ messages: [CustomStringConvertible], level: CNLLogLevel, separator: String? = nil) {
-    CNLLogger.log(messages, level: level)
-}
-
 /// Pretty logger to the debug console
 public struct CNLLogger {
+    
+    public static var prefix: String = "CNL"
+
+    public struct Message {
+        public var code: String
+        public var message: String
+        
+        public init(code: String, message: String) {
+            self.code = code
+            self.message = message
+        }
+        
+        fileprivate func formatLogMessage(kind: String? = nil, _ params: CVarArg ...) -> String {
+            let formattedMessage = String(format: self.message, params)
+            if let kind = kind {
+                return "[\(CNLLogger.prefix)] \(kind) [\(code)] \(formattedMessage)"
+            } else {
+                return "[\(CNLLogger.prefix)] [\(code)] \(formattedMessage)"
+            }
+        }
+        
+        fileprivate func formatLogMessage(kind: String? = nil) -> String {
+            if let kind = kind {
+                return "[\(CNLLogger.prefix)] \(kind) [\(code)] \(message)"
+            } else {
+                return "[\(CNLLogger.prefix)] [\(code)] \(message)"
+            }
+        }
+    }
     
     public static var level: CNLLogLevel = .debug
     
@@ -93,4 +103,28 @@ public struct CNLLogger {
         }
     }
     
+}
+
+public func cnlLog(_ code: CNLLogger.Message, _ level: CNLLogLevel = .debug, _ params: CVarArg ...) {
+    CNLLogger.log(code.formatLogMessage(params), level: level)
+}
+
+public func cnlLog(_ code: CNLLogger.Message, _ level: CNLLogLevel = .debug) {
+    CNLLogger.log(code.formatLogMessage(), level: level)
+}
+
+public func cnlFatalError(_ code: CNLLogger.Message, _ params: CVarArg ...) -> Never  {
+    fatalError(code.formatLogMessage(kind: "[FATAL ERROR]", params))
+}
+
+public func cnlFatalError(_ code: CNLLogger.Message) -> Never  {
+    fatalError(code.formatLogMessage(kind: "[FATAL ERROR]"))
+}
+
+public func assert(_ condition: Bool, _ code: CNLLogger.Message, _ params: CVarArg ...) {
+    assert(condition, code.formatLogMessage(kind: "[ASSERT]", params))
+}
+
+public func assert(_ condition: Bool, _ code: CNLLogger.Message) {
+    assert(condition, code.formatLogMessage(kind: "[ASSERT]"))
 }
