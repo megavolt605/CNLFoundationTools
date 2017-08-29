@@ -2,7 +2,7 @@
 Basic tools and extensions for Foundation framework
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://cocoapods.org/pods/CNLFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.18-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/CNLFoundationTools"><img src="https://img.shields.io/badge/pod-0.0.19-blue.svg" alt="CocoaPods compatible" /></a>
 
 ## Installation
 
@@ -14,7 +14,7 @@ Specify CNLFoundationTools into your project's Podfile:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 pod 'CNLFoundationTools'
