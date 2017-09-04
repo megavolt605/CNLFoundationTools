@@ -59,8 +59,8 @@ public struct CNLLogger {
             self.message = message
         }
         
-        fileprivate func formatLogMessage(kind: String? = nil, _ params: CVarArg ...) -> String {
-            let formattedMessage = String(format: self.message, params)
+        fileprivate func formatLogMessage(kind: String? = nil, _ params: [CVarArg]) -> String {
+            let formattedMessage = String(format: self.message, arguments: params)
             if let kind = kind {
                 return "[\(CNLLogger.prefix)] \(kind) [\(code)] \(formattedMessage)"
             } else {
