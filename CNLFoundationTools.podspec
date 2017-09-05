@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CNLFoundationTools"
-  s.version      = "0.0.19"
+  s.version      = "0.0.20"
   s.summary      = "Common extensions to Foundation."
   s.description  = <<-DESC
 Common extensions to Foundation.
