@@ -10,43 +10,6 @@ import Foundation
 
 public extension String {
     
-    /// Length of string (characters count)
-    public var length: Int {
-        return Array(self.characters).count
-    }
-
-    /// Character by index
-    ///
-    /// - Parameter i: index
-    public subscript (i: Int) -> Character {
-        return self[self.characters.index(self.startIndex, offsetBy: i)]
-    }
-
-    /// Character as String by index
-    ///
-    /// - Parameter i: index
-    public subscript (i: Int) -> String {
-        return String(self[i] as Character)
-    }
-
-    /// Substring with Range
-    ///
-    /// - Parameter r: range of indexes
-    public subscript (r: CountableRange<Int>) -> String {
-        let start = characters.index(startIndex, offsetBy: r.lowerBound)
-        let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
-        return String(self[Range(start ..< end)])
-    }
-
-    /// Substring with Closed Range
-    ///
-    /// - Parameter r: range of indexes
-    public subscript (r: CountableClosedRange<Int>) -> String {
-        let start = characters.index(startIndex, offsetBy: r.lowerBound)
-        let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound + 1)
-        return String(self[Range(start ..< end)])
-    }
-
     /// Converts string to Double?
     public var toDouble: Double? {
         let nf = NumberFormatter()
@@ -69,7 +32,7 @@ public extension String {
     /// - Returns: modified string
     public func appendSuffixBeforeExtension(_ suffix: String) -> String {
         let regex = try? NSRegularExpression(pattern: "(\\.\\w+$)", options: [])
-        return regex!.stringByReplacingMatches(in: self, options: [], range: NSRange(location: 0, length: self.length), withTemplate: "\(suffix)$1")
+        return regex!.stringByReplacingMatches(in: self, options: [], range: NSRange(location: 0, length: self.count), withTemplate: "\(suffix)$1")
     }
 
     /*
@@ -99,10 +62,10 @@ public extension String {
     ///   - trailing: trailing appendix
     /// - Returns: Result string
     public func truncate(_ length: Int, trailing: String? = nil) -> String {
-        if self.length > length {
+        if count > length {
             #if swift(>=4.0)
-                let to = self.characters.index(self.startIndex, offsetBy: length)
-                return String(self[..<to]) + (trailing ?? "")
+                let to = self.index(self.startIndex, offsetBy: length)
+                return self[..<to] + (trailing ?? "")
             #else
                 return self.substring(to: self.characters.index(self.startIndex, offsetBy: length)) + (trailing ?? "")
             #endif
@@ -126,9 +89,9 @@ public extension String {
         var dataIndex = startIndex
         var formatIndex = format.startIndex
         while (dataIndex < endIndex) && (formatIndex < format.endIndex) {
-            let fCh = format.characters[formatIndex]
+            let fCh = format[formatIndex]
             if fCh == placeholder {
-                result.append(characters[dataIndex])
+                result.append(self[dataIndex])
                 dataIndex = index(after: dataIndex)
                 formatIndex = format.index(after: formatIndex)
             } else {
