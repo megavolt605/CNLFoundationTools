@@ -116,7 +116,7 @@ public extension Dictionary {
     ///
     /// - Parameter f: Transform closure
     /// - Returns: Dictionary with the same keys and transformed values
-    public func map(_ transform: (Key, Value) -> Value) -> [Key:Value] {
+    public func map(_ transform: (Key, Value) -> Value) -> [Key: Value] {
         var ret = [Key: Value]()
         for (key, value) in self {
             ret[key] = transform(key, value)
@@ -158,7 +158,7 @@ public extension Dictionary {
     ///
     /// - Parameter f: <#f description#>
     /// - Returns: <#return value description#>
-    public func filter(_ check: (Key, Value) -> Bool) -> [Key:Value] {
+    public func filter(_ check: (Key, Value) -> Bool) -> [Key: Value] {
         var result = [Key: Value]()
         for (key, value) in self {
             if check(key, value) {
