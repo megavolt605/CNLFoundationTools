@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CNLFoundationTools"
-  s.version      = "0.0.21"
+  s.version      = "0.0.22"
   s.summary      = "Common extensions to Foundation."
   s.description  = <<-DESC
 Common extensions to Foundation.
@@ -13,5 +13,5 @@ Commonly used in other Complex Numbers projects.
   s.source       = { :git => "https://github.com/megavolt605/#{s.name}.git", :tag => "#{s.version}" }
   s.source_files  = "#{s.name}/**/*.{h,m,swift}"
   s.framework  = "Foundation", "CoreLocation"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }
 end
